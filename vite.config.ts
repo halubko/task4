@@ -10,8 +10,9 @@ export default defineConfig({
          autoCodeSplitting: true,
       }),
       react({
+         jsxImportSource: "@emotion/react",
          babel: {
-            plugins: [["babel-plugin-react-compiler"]],
+            plugins: [["babel-plugin-react-compiler"], ["@emotion/babel-plugin"]],
          },
       }),
    ],
