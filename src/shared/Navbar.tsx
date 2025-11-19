@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { House, LogIn, MessageCircle, User } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { observer } from "mobx-react-lite";
 
 const Nav = styled.nav`
    display: flex;
@@ -15,7 +16,7 @@ const Nav = styled.nav`
    }
 `;
 
-export default function Navbar() {
+const Navbar = observer(() => {
    const isAuth = false;
 
    return (
@@ -27,15 +28,17 @@ export default function Navbar() {
             <MessageCircle />
          </Link>
          {isAuth ? (
-            <Link to="/user">
+            <Link to="/profile">
                {/* Should be changed on user avatar */}
                <User />
             </Link>
          ) : (
-            <Link to="/login">
+            <Link to="/signin">
                <LogIn />
             </Link>
          )}
       </Nav>
    );
-}
+});
+
+export default Navbar;
