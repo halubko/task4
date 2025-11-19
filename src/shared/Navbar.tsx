@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { House, LogIn, MessageCircle, User } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { observer } from "mobx-react-lite";
+import AuthStore from "@/store/auth.store.ts";
 
 const Nav = styled.nav`
    display: flex;
@@ -17,7 +18,7 @@ const Nav = styled.nav`
 `;
 
 const Navbar = observer(() => {
-   const isAuth = false;
+   const { isAuth } = AuthStore;
 
    return (
       <Nav>
