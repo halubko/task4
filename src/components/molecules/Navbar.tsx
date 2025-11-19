@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { House, MessageCircle, User } from "lucide-react";
+import { House, LogIn, MessageCircle, User } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const Nav = styled.nav`
@@ -16,6 +16,8 @@ const Nav = styled.nav`
 `;
 
 export default function Navbar() {
+   const isAuth = false;
+
    return (
       <Nav>
          <Link to="/posts">
@@ -24,10 +26,16 @@ export default function Navbar() {
          <Link to="/chats">
             <MessageCircle />
          </Link>
-         <Link to="/user">
-            {/* Should be changed on user avatar */}
-            <User />
-         </Link>
+         {isAuth ? (
+            <Link to="/user">
+               {/* Should be changed on user avatar */}
+               <User />
+            </Link>
+         ) : (
+            <Link to="/login">
+               <LogIn />
+            </Link>
+         )}
       </Nav>
    );
 }
