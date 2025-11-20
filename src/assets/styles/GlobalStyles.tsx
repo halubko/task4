@@ -41,7 +41,7 @@ const GlobalStyles = () => (
 
          html,
          body {
-            background: ${theme.colors.main_bg};
+            background: ${theme.colors.background.main};
             color: ${theme.colors.text.primary};
             font-family: "VKSans", serif;
             font-weight: 400;

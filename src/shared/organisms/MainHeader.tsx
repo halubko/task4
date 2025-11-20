@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Navbar from "./Navbar.tsx";
+import Navbar from "../molecules/Navbar.tsx";
 import { Link } from "@tanstack/react-router";
 import { TvMinimalPlay } from "lucide-react";
 
@@ -7,7 +7,7 @@ const Wrapper = styled.div`
    width: 100%;
    display: flex;
    justify-content: center;
-   background-color: ${(props) => props.theme.colors.content_bg};
+   background-color: ${({ theme }) => theme.colors.background.content};
    position: sticky;
    top: 0;
 `;
@@ -38,7 +38,7 @@ const H1 = styled.h1`
    font-size: 1.6rem;
 `;
 
-const Header = () => {
+const MainHeader = () => {
    return (
       <Wrapper>
          <MainContent>
@@ -52,4 +52,4 @@ const Header = () => {
    );
 };
 
-export default Header;
+export default MainHeader;
