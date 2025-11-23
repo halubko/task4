@@ -3,7 +3,7 @@ export interface UserInfoInterface {
    email: string;
    firstName: string;
    lastName: string;
-   image: string | null;
+   image?: string;
    accessToken: string;
    refreshToken: string;
 }
