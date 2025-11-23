@@ -12,7 +12,7 @@ import useSignUp from "@/modules/auth/hooks/useSignUp.ts";
 import type { SignUpFormValues } from "@/modules/auth/types/UserInfo.Interface.ts";
 
 export const SignUpForm = () => {
-   const mutation = useSignUp();
+   const { mutate } = useSignUp();
    const navigate = useNavigate();
 
    const methods = useForm<SignUpSchemaType>({
@@ -25,7 +25,7 @@ export const SignUpForm = () => {
    } = methods;
 
    const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
-      mutation.mutate(data);
+      mutate(data);
       navigate({ to: "/posts" });
    };
 
