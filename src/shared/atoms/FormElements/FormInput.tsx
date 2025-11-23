@@ -19,7 +19,7 @@ const Input = styled.input`
 interface FormInputProps {
    type: "text" | "password" | "email";
    placeholder?: string;
-   variant: "email" | "password" | "confirmPassword" | "firstName" | "lastName";
+   variant: string;
 }
 
 const FormInput = ({ type = "text", placeholder, variant }: FormInputProps) => {
