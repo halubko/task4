@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import PostHeader from "@/modules/posts/components/ui/organisms/PostHeader.tsx";
 import PostFooter from "@/modules/posts/components/ui/organisms/PostFooter.tsx";
 import type { PostInterface } from "@/modules/posts/types/Post.Interfaces.ts";
-import { useGetUser } from "@/modules/profile";
+import { useGetProfile } from "@/modules/profile";
 import PostMain from "@/modules/posts/components/ui/organisms/PostMain.tsx";
 import useGetComments from "@/modules/posts/hooks/useGetComments.ts";
 import { observer } from "mobx-react-lite";
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 const Post = observer((postData: PostInterface) => {
    const { reactions, views, userId, id: postId, title, body, images, videoId } = postData;
-   const { data: userData } = useGetUser(userId);
+   const { data: userData } = useGetProfile(userId);
    const { data: commentsData } = useGetComments(postId);
 
    const handleOpenModal = () => {
