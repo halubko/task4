@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { House, LogIn, MessageCircle, User } from "lucide-react";
+import { House, LogIn, MessageCircle } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { observer } from "mobx-react-lite";
 import { authStore } from "@/modules/auth";
@@ -27,13 +27,6 @@ const Nav = styled.nav`
 
 const Navbar = observer(() => {
    const { isAuth } = authStore;
-   const profileImage = authStore.profilePictureUrl ? (
-      <ProfileAvatarLink src={authStore.profilePictureUrl} path="/profile" />
-   ) : (
-      <Link to="/profile">
-         <User />
-      </Link>
-   );
 
    return (
       <Nav>
@@ -44,8 +37,7 @@ const Navbar = observer(() => {
             <MessageCircle />
          </Link>
          {isAuth ? (
-            /* Should be changed on user avatar */
-            profileImage
+            <ProfileAvatarLink src={authStore.profilePictureUrl} userId={authStore.id} />
          ) : (
             <Link to="/signin">
                <LogIn />
