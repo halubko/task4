@@ -19,7 +19,7 @@ export const theme = {
       },
    },
    borders: {
-      base: "1px solid rgba(255, 255, 255, 0.2)",
-      focus: "1px solid #71aaeb",
+      base: "2px solid rgba(255, 255, 255, 0.2)",
+      focus: "2px solid #71aaeb",
    },
 };
