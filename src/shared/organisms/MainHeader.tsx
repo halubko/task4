@@ -10,6 +10,8 @@ const Wrapper = styled.div`
    background-color: ${({ theme }) => theme.colors.background.content};
    position: sticky;
    top: 0;
+   margin-bottom: 12px;
+   z-index: 2;
 `;
 
 const MainContent = styled.header`
@@ -19,10 +21,6 @@ const MainContent = styled.header`
    justify-content: space-between;
    align-items: center;
    padding: 0.5rem;
-   svg,
-   h1,
-   a {
-   }
 `;
 
 const LogoWrapper = styled(Link)`
