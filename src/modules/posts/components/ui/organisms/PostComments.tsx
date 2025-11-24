@@ -16,8 +16,13 @@ interface PostCommentsProps {
 const PostComments = ({ comments }: PostCommentsProps) => {
    return (
       <Wrapper>
-         {comments.map((comment) => (
-            <PostComment comment={comment} key={comment.id} />
+         {comments.map((comment, index) => (
+            <>
+               <PostComment comment={comment} key={comment.id} />
+               {comments.length > 1 && index !== comments.length - 1 && (
+                  <hr style={{ margin: "8px 0", opacity: 0.5 }} />
+               )}
+            </>
          ))}
          <hr style={{ margin: "8px 0", opacity: 0.5 }} />
          <AddComment postId={comments[0].postId} />
