@@ -7,13 +7,12 @@ import { SignUpSchema, type SignUpSchemaType } from "@/modules/auth/utils/valida
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormError from "@/shared/FormElements/FormError.tsx";
 import FormLink from "@/shared/FormElements/FormLink.tsx";
-import { useNavigate } from "@tanstack/react-router";
 import useSignUp from "@/modules/auth/hooks/useSignUp.ts";
 import type { SignUpFormValues } from "@/modules/auth/interfaces/UserInfo.Interface.ts";
+import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 
 export const SignUpForm = () => {
    const mutation = useSignUp();
-   const navigate = useNavigate();
 
    const methods = useForm<SignUpSchemaType>({
       resolver: zodResolver(SignUpSchema),
@@ -21,12 +20,11 @@ export const SignUpForm = () => {
    });
 
    const {
-      formState: { errors },
+      formState: { errors, isSubmitting },
    } = methods;
 
    const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
       mutation.mutate(data);
-      navigate({ to: "/posts" });
    };
 
    return (
@@ -48,7 +46,7 @@ export const SignUpForm = () => {
             <FormInput variant="password" type="password" placeholder="Password" />
             {errors.confirmPassword && <FormError value={errors.confirmPassword.message} />}
             <FormInput variant="confirmPassword" type="password" placeholder="Confirm password" />
-            <FormButton type="submit">Sign In</FormButton>
+            {isSubmitting ? <LoadingIndicator /> : <FormButton type="submit">Sign Up</FormButton>}
             <FormLink text="Sign Up" path="/signin" />
          </FormGroup>
       </FormProvider>

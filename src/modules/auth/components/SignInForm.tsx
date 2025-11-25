@@ -8,11 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import FormError from "@/shared/FormElements/FormError.tsx";
 import FormLink from "@/shared/FormElements/FormLink.tsx";
 import useSignIn from "@/modules/auth/hooks/useSignIn.ts";
-import { useNavigate } from "@tanstack/react-router";
+import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 
 export const SignInForm = () => {
    const mutation = useSignIn();
-   const navigate = useNavigate();
 
    const methods = useForm<SignInSchemaType>({
       resolver: zodResolver(SignInSchema),
@@ -20,12 +19,11 @@ export const SignInForm = () => {
    });
 
    const {
-      formState: { errors },
+      formState: { errors, isSubmitting },
    } = methods;
 
    const onSubmit = () => {
       mutation.mutate();
-      navigate({ to: "/posts" });
    };
 
    return (
@@ -37,7 +35,7 @@ export const SignInForm = () => {
             <FormInput variant="email" type="text" placeholder="Email" />
             {errors.password && <FormError value={errors.password.message} />}
             <FormInput variant="password" type="password" placeholder="Password" />
-            <FormButton type="submit">Sign In</FormButton>
+            {isSubmitting ? <LoadingIndicator /> : <FormButton type="submit">Sign In</FormButton>}
             <FormLink text="Sign Up" path="/signup" />
          </FormGroup>
       </FormProvider>
