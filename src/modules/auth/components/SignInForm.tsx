@@ -1,12 +1,12 @@
-import FormInput from "@/shared/atoms/FormElements/FormInput.tsx";
-import { AuthHeader } from "@/shared/organisms/AuthHeader.tsx";
+import FormInput from "@/shared/FormElements/FormInput.tsx";
+import { AuthHeader } from "@/modules/auth/components/ui/AuthHeader.tsx";
 import { FormProvider, useForm } from "react-hook-form";
-import FormGroup from "@/shared/molecules/FormGroup.tsx";
-import FormButton from "@/shared/atoms/FormElements/FormButton.tsx";
+import FormGroup from "@/shared/FormGroup.tsx";
+import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SignInSchema, type SignInSchemaType } from "@/modules/auth/utils/validation.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormError from "@/shared/atoms/FormElements/FormError.tsx";
-import FormLink from "@/shared/atoms/FormElements/FormLink.tsx";
+import FormError from "@/shared/FormElements/FormError.tsx";
+import FormLink from "@/shared/FormElements/FormLink.tsx";
 import useSignIn from "@/modules/auth/hooks/useSignIn.ts";
 import { useNavigate } from "@tanstack/react-router";
 

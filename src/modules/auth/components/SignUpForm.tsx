@@ -1,15 +1,15 @@
-import FormInput from "@/shared/atoms/FormElements/FormInput.tsx";
-import { AuthHeader } from "@/shared/organisms/AuthHeader.tsx";
+import FormInput from "@/shared/FormElements/FormInput.tsx";
+import { AuthHeader } from "@/modules/auth/components/ui/AuthHeader.tsx";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
-import FormGroup from "@/shared/molecules/FormGroup.tsx";
-import FormButton from "@/shared/atoms/FormElements/FormButton.tsx";
+import FormGroup from "@/shared/FormGroup.tsx";
+import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SignUpSchema, type SignUpSchemaType } from "@/modules/auth/utils/validation.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormError from "@/shared/atoms/FormElements/FormError.tsx";
-import FormLink from "@/shared/atoms/FormElements/FormLink.tsx";
+import FormError from "@/shared/FormElements/FormError.tsx";
+import FormLink from "@/shared/FormElements/FormLink.tsx";
 import { useNavigate } from "@tanstack/react-router";
 import useSignUp from "@/modules/auth/hooks/useSignUp.ts";
-import type { SignUpFormValues } from "@/modules/auth/types/UserInfo.Interface.ts";
+import type { SignUpFormValues } from "@/modules/auth/interfaces/UserInfo.Interface.ts";
 
 export const SignUpForm = () => {
    const { mutate } = useSignUp();

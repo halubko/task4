@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import type { UserInfoInterface } from "@/modules/auth/types/UserInfo.Interface.ts";
-import type { RefreshTokensInterface } from "@/modules/auth/types/RefreshTokens.Interface.ts";
+import type { UserInfoInterface } from "@/modules/auth/interfaces/UserInfo.Interface.ts";
+import type { RefreshTokensInterface } from "@/modules/auth/interfaces/RefreshTokens.Interface.ts";
 
 class AuthStore {
    id: number = 0;

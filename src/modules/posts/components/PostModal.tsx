@@ -1,4 +1,4 @@
-import ModalTemplate from "@/shared/templates/ModalTemplate.tsx";
+import ModalTemplate from "@/shared/ModalTemplate.tsx";
 import PostHeader from "@/modules/posts/components/ui/organisms/PostHeader.tsx";
 import PostMain from "@/modules/posts/components/ui/organisms/PostMain.tsx";
 import PostFooter from "@/modules/posts/components/ui/organisms/PostFooter.tsx";
