@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { mokPosts } from "@/modules/posts/data/mokPosts.ts";
 import PostModal from "@/modules/posts/components/PostModal.tsx";
+import PostCreateButton from "@/modules/posts/components/ui/atoms/PostCreateButton.tsx";
 
 const Wrapper = styled.div`
    display: flex;
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
    gap: 1rem;
 `;
 
-export const Posts = () => {
+export const PostsList = () => {
    const { data, fetchNextPage } = useGetPosts();
    const { ref, inView } = useInView();
 
@@ -24,6 +25,7 @@ export const Posts = () => {
 
    return (
       <>
+         <PostCreateButton />
          {data?.pages.map((page, i) => (
             <Wrapper key={i}>
                {mokPosts.map((post) => (
