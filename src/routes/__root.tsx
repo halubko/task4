@@ -1,4 +1,9 @@
-import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
+import {
+   createRootRouteWithContext,
+   Outlet,
+   useLocation,
+   useNavigate,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import type { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -16,10 +21,15 @@ export const Route = createRootRouteWithContext<{
 function RootComponent() {
    const { data: user, error, refetch } = useCheckToken();
    const { mutate, isSuccess } = useRefreshToken();
+   const { pathname } = useLocation();
+   const navigate = useNavigate();
 
    useEffect(() => {
       if (user) {
          authStore.setUser(user);
+         if (pathname === "/signin" || pathname === "/signup") {
+            navigate({ to: "/posts" });
+         }
       }
       if (isAxiosError(error) && error.status === 401) {
          mutate();
@@ -27,7 +37,7 @@ function RootComponent() {
             refetch();
          }
       }
-   }, [error, isSuccess, mutate, refetch, user]);
+   }, [error, isSuccess, mutate, navigate, pathname, refetch, user]);
 
    return (
       <>
