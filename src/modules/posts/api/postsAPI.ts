@@ -9,21 +9,24 @@ const axiosInstance = axios.create({
 });
 
 export const getPosts = async ({ pageParam }: { pageParam: number }) => {
-   const response: AxiosResponse<PostsResponseInterface> = await axiosInstance.get(
-      "?limit=10&skip=" + pageParam
-   );
+   const response: AxiosResponse<PostsResponseInterface> = await axiosInstance.get("", {
+      params: {
+         limit: 10,
+         skip: pageParam,
+      },
+   });
    return response.data;
 };
 
-export const getPostsByUserId = async ({
-   pageParam,
-   userId,
-}: {
-   pageParam: number;
-   userId: number;
-}) => {
+export const getPostsByUserId = async (pageParam: number, userId: number) => {
    const response: AxiosResponse<PostsResponseInterface> = await axiosInstance.get(
-      `/user/${userId}?limit=10&skip=` + pageParam
+      `/user/${userId}`,
+      {
+         params: {
+            limit: 10,
+            skip: pageParam,
+         },
+      }
    );
    return response.data;
 };

@@ -1,13 +1,37 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getPosts } from "@/modules/posts/api/postsAPI.ts";
+import { getPosts, getPostsByUserId } from "@/modules/posts/api/postsAPI.ts";
+import { useParams } from "@tanstack/react-router";
 
 const useGetPosts = () => {
-   return useInfiniteQuery({
-      queryKey: ["get", "posts"],
+   const { profileId } = useParams({ strict: false });
+
+   const allPosts = useInfiniteQuery({
+      queryKey: ["get", "posts", "all"],
       queryFn: getPosts,
       initialPageParam: 0,
-      getNextPageParam: (pageParams) => pageParams.skip + 10,
+      getNextPageParam: (lastPage, _allPages, lastPageParams) => {
+         if (!lastPage) {
+            return lastPage;
+         }
+         return lastPageParams + 10;
+      },
+      enabled: !profileId,
    });
+
+   const userPosts = useInfiniteQuery({
+      queryKey: ["get", "posts", "user", profileId],
+      queryFn: ({ pageParam }) => getPostsByUserId(pageParam, Number(profileId)),
+      initialPageParam: 0,
+      getNextPageParam: (lastPage, _allPages, lastPageParams) => {
+         if (!lastPage) {
+            return lastPage;
+         }
+         return lastPageParams + 10;
+      },
+      enabled: !!profileId,
+   });
+
+   return profileId ? userPosts : allPosts;
 };
 
 export default useGetPosts;
