@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { mokPosts } from "@/modules/posts/data/mokPosts.ts";
 import PostModal from "@/modules/posts/components/PostModal.tsx";
 import PostCreateButton from "@/modules/posts/components/ui/PostCreateButton.tsx";
+import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 
 const Wrapper = styled.div`
    display: flex;
@@ -14,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 export const PostsList = () => {
-   const { data, fetchNextPage } = useGetPosts();
+   const { data, fetchNextPage, isFetching } = useGetPosts();
    const { ref, inView } = useInView();
 
    useEffect(() => {
@@ -37,6 +38,7 @@ export const PostsList = () => {
                <div ref={ref}></div>
             </Wrapper>
          ))}
+         {isFetching && <LoadingIndicator />}
          <PostModal />
       </>
    );
