@@ -1,8 +1,8 @@
 import axios, { type AxiosResponse } from "axios";
 import { BASE_URL } from "@/constants/constants.ts";
-import type { PostsResponseInterface } from "@/modules/posts/types/Post.Interfaces.ts";
-import type { PostCommentsResponseInterface } from "@/modules/posts/types/Comment.Interfaces.ts";
-import type { CreateFormBody } from "@/modules/posts/types/CreateFormValues.interface.ts";
+import type { PostsResponseInterface } from "@/modules/posts/interfaces/Post.Interfaces.ts";
+import type { PostCommentsResponseInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
+import type { CreateFormBody } from "@/modules/posts/interfaces/CreateFormValues.interfaces.ts";
 
 const axiosInstance = axios.create({
    baseURL: BASE_URL + "/posts",

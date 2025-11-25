@@ -1,4 +1,4 @@
-import type { PostCommentInterface } from "@/modules/posts/types/Comment.Interfaces.ts";
+import type { PostCommentInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
 import PostComment from "@/modules/posts/components/ui/molecules/PostComment.tsx";
 import styled from "@emotion/styled";
 import AddComment from "@/modules/posts/components/ui/molecules/AddCommentForm.tsx";

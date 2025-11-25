@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import type { PostInterface } from "@/modules/posts/types/Post.Interfaces.ts";
-import type { PostCommentsResponseInterface } from "@/modules/posts/types/Comment.Interfaces.ts";
-import type { ProfileInfoInterface } from "@/modules/profile/types/ProfileInfo.Interface.ts";
+import type { PostInterface } from "@/modules/posts/interfaces/Post.Interfaces.ts";
+import type { PostCommentsResponseInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
+import type { ProfileInfoInterface } from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
 
 class PostUIStore {
    isCreatePostOpen: boolean = false;

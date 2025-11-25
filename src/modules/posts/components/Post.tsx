@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import PostHeader from "@/modules/posts/components/ui/organisms/PostHeader.tsx";
 import PostFooter from "@/modules/posts/components/ui/organisms/PostFooter.tsx";
-import type { PostInterface } from "@/modules/posts/types/Post.Interfaces.ts";
+import type { PostInterface } from "@/modules/posts/interfaces/Post.Interfaces.ts";
 import { useGetProfile } from "@/modules/profile";
 import PostMain from "@/modules/posts/components/ui/organisms/PostMain.tsx";
 import useGetComments from "@/modules/posts/hooks/useGetComments.ts";

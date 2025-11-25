@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from "axios";
 import { BASE_URL } from "@/constants/constants.ts";
-import type { ProfileInfoInterface } from "@/modules/profile/types/ProfileInfo.Interface.ts";
+import type { ProfileInfoInterface } from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
 
 const axiosInstance = axios.create({
    baseURL: BASE_URL + "/users",
