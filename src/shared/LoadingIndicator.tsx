@@ -2,12 +2,13 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
 const LoadingIndicatorWrapper = styled.div`
-   display: inline-flex;
+   display: flex;
    align-items: center;
    justify-content: center;
+   justify-self: center;
    gap: 6px;
    background-color: ${({ theme }) => theme.colors.background.content};
-   padding: 4px;
+   padding: 8px;
    border-radius: 4px;
 `;
 
