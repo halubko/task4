@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Link } from "@tanstack/react-router";
+import { createLink } from "@tanstack/react-router";
 import { User } from "lucide-react";
 
 const Img = styled.img`
@@ -11,7 +11,7 @@ const Img = styled.img`
    box-sizing: border-box;
 `;
 
-const LinkWrapper = styled(Link)`
+const LinkWrapper = styled.a`
    display: flex;
    align-items: center;
    justify-content: center;
@@ -27,12 +27,14 @@ interface ProfileAvatarLinkProps {
    profileName?: string;
 }
 
+const Link = createLink(LinkWrapper);
+
 const ProfileAvatarLink = ({ userId, src, alt, profileName }: ProfileAvatarLinkProps) => {
    return (
-      <LinkWrapper to={`/profile/${userId}`}>
+      <Link to={"/profile/$profileId"} params={{ profileId: `${userId}` }}>
          {src ? <Img src={src} alt={alt} /> : <User />}
          {profileName}
-      </LinkWrapper>
+      </Link>
    );
 };
 
