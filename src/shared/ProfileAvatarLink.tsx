@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { Link } from "@tanstack/react-router";
+import { createLink } from "@tanstack/react-router";
+import { User } from "lucide-react";
 
 const Img = styled.img`
    width: 28px;
@@ -8,19 +9,31 @@ const Img = styled.img`
    border: 2px solid transparent;
    transition: all 0.2s ease-in-out;
    box-sizing: border-box;
-   //padding: 5px;
+`;
+
+const LinkWrapper = styled.a`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+   color: ${({ theme }) => theme.colors.text.link};
+   font-weight: 600;
 `;
 
 interface ProfileAvatarLinkProps {
-   path: string;
-   src: string;
+   userId: number;
+   src?: string;
    alt?: string;
+   profileName?: string;
 }
 
-const ProfileAvatarLink = ({ path, src, alt }: ProfileAvatarLinkProps) => {
+const Link = createLink(LinkWrapper);
+
+const ProfileAvatarLink = ({ userId, src, alt, profileName }: ProfileAvatarLinkProps) => {
    return (
-      <Link to={path}>
-         <Img src={src} alt={alt} />
+      <Link to={"/profile/$profileId"} params={{ profileId: `${userId}` }}>
+         {src ? <Img src={src} alt={alt} /> : <User />}
+         {profileName}
       </Link>
    );
 };

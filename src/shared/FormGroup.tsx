@@ -10,6 +10,8 @@ const Form = styled.form`
    border-radius: 16px;
    padding: 24px;
    width: 100%;
+   box-sizing: border-box;
+   border: ${({ theme }) => theme.borders.base};
 `;
 
 interface FormTemplateProps {

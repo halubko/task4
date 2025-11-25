@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import type { PropsWithChildren } from "react";
+import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
 
 const Button = styled.button`
    width: 100%;
@@ -17,8 +17,7 @@ const Button = styled.button`
    }
 `;
 
-interface FormButton {
-   type?: "submit" | "reset" | "button";
+interface FormButton extends ButtonHTMLAttributes<HTMLButtonElement> {
    variant?: "primary" | "secondary";
 }
 

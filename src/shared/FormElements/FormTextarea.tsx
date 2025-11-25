@@ -1,31 +1,28 @@
 import styled from "@emotion/styled";
+import TextareaAutosize from "react-textarea-autosize";
 import { useFormContext } from "react-hook-form";
 
-const Input = styled.input`
+const Textarea = styled(TextareaAutosize)`
    border: ${({ theme }) => theme.borders.base};
    border-radius: 8px;
    box-sizing: border-box;
    padding: 10px;
    font-size: 1rem;
    width: 100%;
+   resize: none;
    background-color: ${({ theme }) => theme.colors.background.input};
    color: ${({ theme }) => theme.colors.text.primary};
+   text-decoration: none;
    &:focus {
       outline: none;
       border: ${({ theme }) => theme.borders.focus};
    }
 `;
 
-interface FormInputProps {
-   type: "text" | "password" | "email";
-   placeholder?: string;
-   variant: string;
-}
-
-const FormInput = ({ type = "text", placeholder, variant }: FormInputProps) => {
+const FormTextarea = () => {
    const { register } = useFormContext();
 
-   return <Input type={type} {...register(variant)} placeholder={placeholder} />;
+   return <Textarea placeholder="Description" {...register("body")} />;
 };
 
-export default FormInput;
+export default FormTextarea;
