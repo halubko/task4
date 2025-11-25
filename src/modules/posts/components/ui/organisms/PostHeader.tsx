@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ProfileAvatarLink from "@/shared/atoms/ProfileAvatarLink.tsx";
+import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
 
 const Wrapper = styled.div`
    display: flex;

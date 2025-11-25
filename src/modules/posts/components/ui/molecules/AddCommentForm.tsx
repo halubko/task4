@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import ProfileAvatarLink from "@/shared/atoms/ProfileAvatarLink.tsx";
+import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
 import { authStore } from "@/modules/auth";
-import FormInput from "@/shared/atoms/FormElements/FormInput.tsx";
-import FormButton from "@/shared/atoms/FormElements/FormButton.tsx";
+import FormInput from "@/shared/FormElements/FormInput.tsx";
+import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SendHorizonal } from "lucide-react";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
 import { AddCommentSchema, type AddCommentType } from "@/modules/posts/utils/validation.ts";
