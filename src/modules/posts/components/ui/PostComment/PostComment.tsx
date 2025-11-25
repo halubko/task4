@@ -1,6 +1,6 @@
 import type { PostCommentInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
 import styled from "@emotion/styled";
-import Likes from "@/modules/posts/components/ui/atoms/Likes.tsx";
+import Likes from "@/modules/posts/components/ui/Likes.tsx";
 import { Link } from "@tanstack/react-router";
 
 const Wrapper = styled.section`

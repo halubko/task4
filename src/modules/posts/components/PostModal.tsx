@@ -1,8 +1,8 @@
 import ModalTemplate from "@/shared/ModalTemplate.tsx";
-import PostHeader from "@/modules/posts/components/ui/organisms/PostHeader.tsx";
-import PostMain from "@/modules/posts/components/ui/organisms/PostMain.tsx";
-import PostFooter from "@/modules/posts/components/ui/organisms/PostFooter.tsx";
-import PostComments from "@/modules/posts/components/ui/organisms/PostComments.tsx";
+import PostHeader from "@/modules/posts/components/ui/PostHeader/PostHeader.tsx";
+import PostMain from "@/modules/posts/components/ui/PostMain/PostMain.tsx";
+import PostFooter from "@/modules/posts/components/ui/PostFooter/PostFooter.tsx";
+import PostCommentsList from "@/modules/posts/components/ui/PostComment/PostCommentsList.tsx";
 import PostUIStore from "@/modules/posts/store/postUI.store.ts";
 import { observer } from "mobx-react-lite";
 import styled from "@emotion/styled";
@@ -48,7 +48,7 @@ const PostModal = observer(() => {
                {commentsData.comments[0] && (
                   <>
                      <hr />
-                     <PostComments comments={commentsData.comments} />
+                     <PostCommentsList comments={commentsData.comments} />
                   </>
                )}
             </Wrapper>

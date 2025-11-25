@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import PostControlPhotoButtons from "@/modules/posts/components/ui/atoms/PostControlPhotoButtons.tsx";
+import PostChangePhotoButtons from "@/modules/posts/components/ui/PostMain/PostChangePhotoButtons.tsx";
 import PostUIStore from "@/modules/posts/store/postUI.store.ts";
 import { observer } from "mobx-react-lite";
 
@@ -62,7 +62,7 @@ const PostImages = observer(({ images, postId }: PostImagesProps) => {
             <Img key={src} src={src} isVisible={index === currentImage} />
          ))}
          {imagesCount > 1 && (
-            <PostControlPhotoButtons
+            <PostChangePhotoButtons
                imagesCount={imagesCount}
                currentImage={currentImage}
                setCurrentImage={handleSetCurrentImage}

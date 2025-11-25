@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import PostDescription from "@/modules/posts/components/ui/molecules/PostDescription.tsx";
-import PostImages from "@/modules/posts/components/ui/molecules/PostImages.tsx";
-import PostVideo from "@/modules/posts/components/ui/molecules/PostVideo.tsx";
+import PostDescription from "@/modules/posts/components/ui/PostMain/PostDescription.tsx";
+import PostImages from "@/modules/posts/components/ui/PostMain/PostImages.tsx";
+import PostVideo from "@/modules/posts/components/ui/PostMain/PostVideo.tsx";
 import { observer } from "mobx-react-lite";
 
 const Wrapper = styled.div`

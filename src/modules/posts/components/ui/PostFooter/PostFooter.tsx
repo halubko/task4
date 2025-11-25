@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import PostReactions from "@/modules/posts/components/ui/molecules/PostReactions.tsx";
-import PostViews from "@/modules/posts/components/ui/atoms/PostViews.tsx";
+import PostReactions from "@/modules/posts/components/ui/PostFooter/PostReactions.tsx";
+import PostViews from "@/modules/posts/components/ui/PostFooter/PostViews.tsx";
 
 const Wrapper = styled.div`
    display: flex;

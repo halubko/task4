@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import Likes from "@/modules/posts/components/ui/atoms/Likes.tsx";
-import PostCommentsQuantity from "@/modules/posts/components/ui/atoms/PostCommentsQuantity.tsx";
+import Likes from "@/modules/posts/components/ui/Likes.tsx";
+import PostCommentsQuantity from "@/modules/posts/components/ui/PostFooter/PostCommentsQuantity.tsx";
 
 const Wrapper = styled.div`
    display: flex;

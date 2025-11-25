@@ -35,7 +35,7 @@ interface PostControlPhotoButtonsProps {
    imagesCount: number;
 }
 
-const PostControlPhotoButtons = ({
+const PostChangePhotoButtons = ({
    currentImage,
    setCurrentImage,
    imagesCount,
@@ -64,4 +64,4 @@ const PostControlPhotoButtons = ({
    );
 };
 
-export default PostControlPhotoButtons;
+export default PostChangePhotoButtons;

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
    gap: 8px;
 `;
 
-export const PostFormHeader = () => {
+export const CreatePostFormHeader = () => {
    return (
       <Wrapper>
          <BadgePlus size={42} />

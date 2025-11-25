@@ -1,7 +1,7 @@
 import type { PostCommentInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
-import PostComment from "@/modules/posts/components/ui/molecules/PostComment.tsx";
+import PostComment from "@/modules/posts/components/ui/PostComment/PostComment.tsx";
 import styled from "@emotion/styled";
-import AddComment from "@/modules/posts/components/ui/molecules/AddCommentForm.tsx";
+import AddComment from "@/modules/posts/components/ui/PostComment/AddCommentForm.tsx";
 
 const Wrapper = styled.div`
    display: flex;
@@ -13,7 +13,7 @@ interface PostCommentsProps {
    comments: PostCommentInterface[];
 }
 
-const PostComments = ({ comments }: PostCommentsProps) => {
+const PostCommentsList = ({ comments }: PostCommentsProps) => {
    return (
       <Wrapper>
          {comments.map((comment, index) => (
@@ -30,4 +30,4 @@ const PostComments = ({ comments }: PostCommentsProps) => {
    );
 };
 
-export default PostComments;
+export default PostCommentsList;

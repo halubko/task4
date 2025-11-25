@@ -29,7 +29,7 @@ const useLike = ({ likes, id }: useLikeProps) => {
       onError: (error) => {
          setIsLiked((prev) => !prev);
          setLikesCount((prev) => (isLiked ? prev - 1 : prev + 1));
-         toast.error("Comment like setting error: " + error.message);
+         toast.error("PostComment like setting error: " + error.message);
       },
    });
 

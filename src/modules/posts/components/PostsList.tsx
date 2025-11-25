@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { mokPosts } from "@/modules/posts/data/mokPosts.ts";
 import PostModal from "@/modules/posts/components/PostModal.tsx";
-import PostCreateButton from "@/modules/posts/components/ui/atoms/PostCreateButton.tsx";
+import PostCreateButton from "@/modules/posts/components/ui/PostCreateButton.tsx";
 
 const Wrapper = styled.div`
    display: flex;

@@ -11,7 +11,7 @@ import { authStore } from "@/modules/auth";
 import type { CreateFormValues } from "@/modules/posts/interfaces/CreateFormValues.interfaces.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreatePostSchema, type CreatePostSchemaType } from "@/modules/posts/utils/validation.ts";
-import { PostFormHeader } from "@/modules/posts/components/ui/organisms/PostFormHeader.tsx";
+import { CreatePostFormHeader } from "@/modules/posts/components/ui/CreatePostFormHeader.tsx";
 import FormError from "@/shared/FormElements/FormError.tsx";
 
 export const PostCreateModal = observer(() => {
@@ -41,7 +41,7 @@ export const PostCreateModal = observer(() => {
       <ModalTemplate>
          <FormProvider {...methods}>
             <FormGroup onSubmit={methods.handleSubmit(onSubmit)}>
-               <PostFormHeader />
+               <CreatePostFormHeader />
                <hr style={{ width: "100%" }} />
                {errors.required && <FormError value={errors.required.message} />}
                <FormInput type="text" placeholder="Title" variant="title" />
