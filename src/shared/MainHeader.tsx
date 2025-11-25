@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Navbar from "../molecules/Navbar.tsx";
+import Navbar from "./Navbar.tsx";
 import { Link } from "@tanstack/react-router";
 import { TvMinimalPlay } from "lucide-react";
 

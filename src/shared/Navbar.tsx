@@ -3,7 +3,7 @@ import { House, LogIn, MessageCircle, User } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { observer } from "mobx-react-lite";
 import { authStore } from "@/modules/auth";
-import ProfileAvatarLink from "@/shared/atoms/ProfileAvatarLink.tsx";
+import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
 
 const Nav = styled.nav`
    display: flex;
