@@ -1,17 +1,20 @@
 import { useMutation } from "@tanstack/react-query";
-import AuthStore from "@/modules/auth/store/auth.store.ts";
 import { addUser } from "@/modules/auth/api/api.ts";
 import { toast } from "react-toastify";
+import { useNavigate } from "@tanstack/react-router";
 
 const useSignUp = () => {
+   const navigate = useNavigate();
+
    return useMutation({
       mutationKey: ["signup"],
       mutationFn: addUser,
-      onSuccess: (data) => {
-         AuthStore.setUser(data);
+      onSuccess: () => {
+         toast.success("Signup successfully created!");
+         navigate({ to: "/signin" });
       },
       onError: (error) => {
-         toast(`SignUp Error: ${error.message}`);
+         toast(`Signup Error: ${error.message}`);
       },
    });
 };
