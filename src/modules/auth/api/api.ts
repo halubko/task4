@@ -2,10 +2,10 @@ import { type AxiosResponse } from "axios";
 import type {
    AddUserInterface,
    UserInfoInterface,
-} from "@/modules/auth/types/UserInfo.Interface.ts";
+} from "@/modules/auth/interfaces/UserInfo.Interface.ts";
 import axios from "axios";
 import { BASE_URL } from "@/constants/constants.ts";
-import type { RefreshTokensInterface } from "@/modules/auth/types/RefreshTokens.Interface.ts";
+import type { RefreshTokensInterface } from "@/modules/auth/interfaces/RefreshTokens.Interface.ts";
 
 const axiosInstanceUsers = axios.create({
    baseURL: BASE_URL + "/users",

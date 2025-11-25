@@ -9,7 +9,7 @@ import FormError from "@/shared/FormElements/FormError.tsx";
 import FormLink from "@/shared/FormElements/FormLink.tsx";
 import { useNavigate } from "@tanstack/react-router";
 import useSignUp from "@/modules/auth/hooks/useSignUp.ts";
-import type { SignUpFormValues } from "@/modules/auth/types/UserInfo.Interface.ts";
+import type { SignUpFormValues } from "@/modules/auth/interfaces/UserInfo.Interface.ts";
 
 export const SignUpForm = () => {
    const mutation = useSignUp();
