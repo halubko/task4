@@ -13,13 +13,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CreatePostSchema, type CreatePostSchemaType } from "@/modules/posts/utils/validation.ts";
 import { CreatePostFormHeader } from "@/modules/posts/components/ui/CreatePostFormHeader.tsx";
 import FormError from "@/shared/FormElements/FormError.tsx";
+import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
+import { useEffect } from "react";
 
 export const PostCreateModal = observer(() => {
    const methods = useForm<CreatePostSchemaType & { required?: string }>({
       resolver: zodResolver(CreatePostSchema),
       mode: "onSubmit",
    });
-   const { mutate } = useCreatePost();
+   const { mutate, isPending, isSuccess } = useCreatePost();
+
+   useEffect(() => {
+      if (isSuccess) {
+         methods.reset();
+         PostUIStore.setIsCreatePostOpen(false);
+      }
+   }, [isSuccess, methods]);
 
    const {
       formState: { errors },
@@ -31,8 +40,6 @@ export const PostCreateModal = observer(() => {
          body: data.body,
          userId: authStore.id,
       });
-      methods.reset();
-      PostUIStore.setIsCreatePostOpen(false);
    };
 
    if (!PostUIStore.isCreatePostOpen) return null;
@@ -47,7 +54,11 @@ export const PostCreateModal = observer(() => {
                <FormInput type="text" placeholder="Title" variant="title" />
                <FormTextarea />
                <FormInput type="text" placeholder="Youtube video link" variant="video" />
-               <FormButton type="submit">Create Post</FormButton>
+               {isPending ? (
+                  <LoadingIndicator />
+               ) : (
+                  <FormButton type="submit">Create Post</FormButton>
+               )}
             </FormGroup>
          </FormProvider>
       </ModalTemplate>
