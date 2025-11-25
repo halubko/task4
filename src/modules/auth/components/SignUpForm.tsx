@@ -12,7 +12,7 @@ import type { SignUpFormValues } from "@/modules/auth/interfaces/UserInfo.Interf
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 
 export const SignUpForm = () => {
-   const mutation = useSignUp();
+   const { mutate, isPending } = useSignUp();
 
    const methods = useForm<SignUpSchemaType>({
       resolver: zodResolver(SignUpSchema),
@@ -20,11 +20,11 @@ export const SignUpForm = () => {
    });
 
    const {
-      formState: { errors, isSubmitting },
+      formState: { errors },
    } = methods;
 
    const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
-      mutation.mutate(data);
+      mutate(data);
    };
 
    return (
@@ -46,7 +46,7 @@ export const SignUpForm = () => {
             <FormInput variant="password" type="password" placeholder="Password" />
             {errors.confirmPassword && <FormError value={errors.confirmPassword.message} />}
             <FormInput variant="confirmPassword" type="password" placeholder="Confirm password" />
-            {isSubmitting ? <LoadingIndicator /> : <FormButton type="submit">Sign Up</FormButton>}
+            {isPending ? <LoadingIndicator /> : <FormButton type="submit">Sign Up</FormButton>}
             <FormLink text="Sign Up" path="/signin" />
          </FormGroup>
       </FormProvider>

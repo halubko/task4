@@ -11,7 +11,7 @@ import useSignIn from "@/modules/auth/hooks/useSignIn.ts";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 
 export const SignInForm = () => {
-   const mutation = useSignIn();
+   const { mutate, isPending } = useSignIn();
 
    const methods = useForm<SignInSchemaType>({
       resolver: zodResolver(SignInSchema),
@@ -19,11 +19,11 @@ export const SignInForm = () => {
    });
 
    const {
-      formState: { errors, isSubmitting },
+      formState: { errors },
    } = methods;
 
    const onSubmit = () => {
-      mutation.mutate();
+      mutate();
    };
 
    return (
@@ -35,7 +35,7 @@ export const SignInForm = () => {
             <FormInput variant="email" type="text" placeholder="Email" />
             {errors.password && <FormError value={errors.password.message} />}
             <FormInput variant="password" type="password" placeholder="Password" />
-            {isSubmitting ? <LoadingIndicator /> : <FormButton type="submit">Sign In</FormButton>}
+            {isPending ? <LoadingIndicator /> : <FormButton type="submit">Sign In</FormButton>}
             <FormLink text="Sign Up" path="/signup" />
          </FormGroup>
       </FormProvider>
