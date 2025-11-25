@@ -7,7 +7,7 @@ class AuthStore {
    firstName: string = "";
    lastName: string = "";
    email: string = "";
-   profilePictureUrl: string | null = null;
+   profilePictureUrl?: string = "";
    accessToken: string = "";
    refreshToken: string = "";
    isAuth: boolean = false;

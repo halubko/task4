@@ -10,7 +10,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { authStore, useCheckToken, useRefreshToken } from "@/modules/auth";
 import { isAxiosError } from "axios";
 import { useEffect } from "react";
-import { ToastContainer } from "react-toastify";
+import { StyledToastContainer } from "@/assets/styles/toast.ts";
 
 export const Route = createRootRouteWithContext<{
    queryClient: QueryClient;
@@ -42,7 +42,7 @@ function RootComponent() {
    return (
       <>
          <Outlet />
-         <ToastContainer />
+         <StyledToastContainer />
          <ReactQueryDevtools buttonPosition="top-right" />
          <TanStackRouterDevtools position="bottom-right" />
       </>
