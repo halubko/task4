@@ -31,6 +31,19 @@ class AuthStore {
       localStorage.setItem("accessToken", this.accessToken);
       localStorage.setItem("refreshToken", this.refreshToken);
    }
+
+   logout() {
+      this.id = 0;
+      this.firstName = "";
+      this.lastName = "";
+      this.email = "";
+      this.profilePictureUrl = "";
+      this.accessToken = "";
+      this.refreshToken = "";
+      this.isAuth = false;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+   }
 }
 
 export default new AuthStore();
