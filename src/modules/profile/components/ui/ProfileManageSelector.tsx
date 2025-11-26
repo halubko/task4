@@ -7,6 +7,8 @@ import { Button } from "@/modules/profile/components/ui/ProfileManageSelector/Bu
 import { authStore } from "@/modules/auth";
 import { useNavigate } from "@tanstack/react-router";
 import useDeleteUser from "@/modules/profile/hooks/useDeleteUser.ts";
+import { observer } from "mobx-react-lite";
+import { useQueryClient } from "@tanstack/react-query";
 
 const Wrapper = styled.div`
    position: relative;
@@ -20,15 +22,17 @@ const Arrow = styled(ChevronDownIcon, {
    transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
 `;
 
-const ProfileManageSelector = () => {
+const ProfileManageSelector = observer(() => {
    const [isOpen, setIsOpen] = useState(false);
    const navigate = useNavigate();
    const { mutate } = useDeleteUser(authStore.id);
+   const queryClient = useQueryClient();
 
    const toggleMenu = () => setIsOpen(!isOpen);
 
    const handleLogOut = () => {
       authStore.logout();
+      queryClient.clear();
       navigate({ to: "/signin" });
    };
 
@@ -48,6 +52,6 @@ const ProfileManageSelector = () => {
          </Dropdown>
       </Wrapper>
    );
-};
+});
 
 export default ProfileManageSelector;
