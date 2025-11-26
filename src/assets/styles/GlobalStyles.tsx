@@ -1,5 +1,10 @@
 import { css, Global, type Theme } from "@emotion/react";
 
+import RegularFont from "@/assets/fonts/VKSansDisplay-Regular.ttf";
+import MediumFont from "@/assets/fonts/VKSansDisplay-Medium.ttf";
+import DemiBoldFont from "@/assets/fonts/VKSansDisplay-DemiBold.ttf";
+import BoldFont from "@/assets/fonts/VKSansDisplay-Bold.ttf";
+
 const GlobalStyles = () => (
    <Global
       styles={(theme: Theme) => css`
@@ -9,7 +14,7 @@ const GlobalStyles = () => (
             font-weight: 400;
             src:
                local(""),
-               url("src/assets/fonts/VKSansDisplay-Regular.ttf") format("truetype");
+               url(${RegularFont}) format("truetype");
          }
 
          @font-face {
@@ -18,7 +23,7 @@ const GlobalStyles = () => (
             font-weight: 500;
             src:
                local(""),
-               url("src/assets/fonts/VKSansDisplay-Medium.ttf") format("truetype");
+               url(${MediumFont}) format("truetype");
          }
 
          @font-face {
@@ -27,7 +32,7 @@ const GlobalStyles = () => (
             font-weight: 600;
             src:
                local(""),
-               url("src/assets/fonts/VKSansDisplay-DemiBold.ttf") format("truetype");
+               url(${DemiBoldFont}) format("truetype");
          }
 
          @font-face {
@@ -36,7 +41,7 @@ const GlobalStyles = () => (
             font-weight: 700;
             src:
                local(""),
-               url("src/assets/fonts/VKSansDisplay-Bold.ttf") format("truetype");
+               url(${BoldFont}) format("truetype");
          }
 
          html,
