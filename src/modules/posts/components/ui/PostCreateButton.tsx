@@ -9,9 +9,8 @@ const Wrapper = styled.button`
    justify-content: center;
    border: ${({ theme }) => theme.borders.base};
    border-radius: 8px;
-   background-color: ${({ theme }) => theme.colors.background.content};
    width: 100%;
-   margin-bottom: 1rem;
+   background-color: ${({ theme }) => theme.colors.background.content};
    color: ${({ theme }) => theme.colors.text.link};
    padding: 8px;
    font-weight: bold;
