@@ -10,8 +10,8 @@ const useGetPosts = () => {
       queryFn: getPosts,
       initialPageParam: 0,
       getNextPageParam: (lastPage, _allPages, lastPageParams) => {
-         if (!lastPage) {
-            return lastPage;
+         if (!lastPage || lastPage.posts.length === 0) {
+            return undefined;
          }
          return lastPageParams + 10;
       },
@@ -23,8 +23,8 @@ const useGetPosts = () => {
       queryFn: ({ pageParam }) => getPostsByUserId(pageParam, Number(profileId)),
       initialPageParam: 0,
       getNextPageParam: (lastPage, _allPages, lastPageParams) => {
-         if (!lastPage) {
-            return lastPage;
+         if (!lastPage || lastPage.posts.length === 0) {
+            return undefined;
          }
          return lastPageParams + 10;
       },
