@@ -7,10 +7,9 @@ import { SendHorizonal } from "lucide-react";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
 import { AddCommentSchema, type AddCommentType } from "@/modules/posts/utils/validation.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addComment } from "@/modules/posts/api/commentsAPI.ts";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import useSetComment from "@/modules/posts/hooks/useSetComment.ts";
 
 const Form = styled.form`
    display: flex;
@@ -33,19 +32,8 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
       resolver: zodResolver(AddCommentSchema),
       mode: "onSubmit",
    });
-   const queryClient = useQueryClient();
 
-   const { mutate } = useMutation({
-      mutationKey: ["add", "comment"],
-      mutationFn: addComment,
-      onSuccess: () => {
-         queryClient.invalidateQueries({ queryKey: ["get", "post", "comments", postId] });
-         methods.reset();
-      },
-      onError: (error) => {
-         toast.error("Failed to add a comment: " + error.message);
-      },
-   });
+   const { mutate } = useSetComment({ postId, methods });
 
    const {
       formState: { errors },

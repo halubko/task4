@@ -45,12 +45,8 @@ const PostModal = observer(() => {
                   postId={post.id}
                />
 
-               {commentsData.comments[0] && (
-                  <>
-                     <hr />
-                     <PostCommentsList comments={commentsData.comments} />
-                  </>
-               )}
+               <hr />
+               <PostCommentsList comments={commentsData.comments} postId={post.id} />
             </Wrapper>
          )}
       </ModalTemplate>
