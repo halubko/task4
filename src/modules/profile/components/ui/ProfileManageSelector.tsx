@@ -6,6 +6,7 @@ import { MenuItem } from "@/modules/profile/components/ui/ProfileManageSelector/
 import { Button } from "@/modules/profile/components/ui/ProfileManageSelector/Button.ts";
 import { authStore } from "@/modules/auth";
 import { useNavigate } from "@tanstack/react-router";
+import useDeleteUser from "@/modules/profile/hooks/useDeleteUser.ts";
 
 const Wrapper = styled.div`
    position: relative;
@@ -22,6 +23,7 @@ const Arrow = styled(ChevronDownIcon, {
 const ProfileManageSelector = () => {
    const [isOpen, setIsOpen] = useState(false);
    const navigate = useNavigate();
+   const { mutate } = useDeleteUser(authStore.id);
 
    const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -40,7 +42,9 @@ const ProfileManageSelector = () => {
          <Dropdown $isOpen={isOpen}>
             <MenuItem>Edit</MenuItem>
             <MenuItem onClick={handleLogOut}>Logout</MenuItem>
-            <MenuItem variant="delete">Delete account</MenuItem>
+            <MenuItem variant="delete" onClick={() => mutate}>
+               Delete account
+            </MenuItem>
          </Dropdown>
       </Wrapper>
    );
