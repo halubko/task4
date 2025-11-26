@@ -26,6 +26,7 @@ export const useRefreshToken = () => {
             navigate({ to: "/signin" });
          } else if (pathname !== "/signup" && pathname !== "/signin") {
             toast.error("Refresh token Error: " + error.message);
+            navigate({ to: "/signin" });
          }
       },
    });

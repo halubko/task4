@@ -8,7 +8,6 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import type { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { authStore, useCheckToken, useRefreshToken } from "@/modules/auth";
-import { isAxiosError } from "axios";
 import { useEffect } from "react";
 import { StyledToastContainer } from "@/assets/styles/toast.ts";
 
@@ -30,8 +29,7 @@ function RootComponent() {
          if (pathname === "/signin" || pathname === "/signup") {
             navigate({ to: "/posts" });
          }
-      }
-      if (isAxiosError(error) && error.status === 401) {
+      } else {
          mutate();
          if (isSuccess) {
             refetch();
