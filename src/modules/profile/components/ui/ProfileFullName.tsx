@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ProfileManage from "@/modules/profile/components/ui/ProfileManage.tsx";
+import ProfileManageSelector from "@/modules/profile/components/ui/ProfileManageSelector.tsx";
 
 const Wrapper = styled.h2`
    display: flex;
@@ -18,7 +18,7 @@ const ProfileFullName = ({ firstName, lastName }: ProfileFullNameProps) => {
    return (
       <Wrapper>
          {firstName + " " + lastName}
-         <ProfileManage />
+         <ProfileManageSelector />
       </Wrapper>
    );
 };

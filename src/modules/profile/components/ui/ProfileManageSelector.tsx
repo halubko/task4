@@ -4,6 +4,8 @@ import { ChevronDownIcon } from "lucide-react";
 import { Dropdown } from "@/modules/profile/components/ui/ProfileManageSelector/Dropdown.ts";
 import { MenuItem } from "@/modules/profile/components/ui/ProfileManageSelector/MenuItem.ts";
 import { Button } from "@/modules/profile/components/ui/ProfileManageSelector/Button.ts";
+import { authStore } from "@/modules/auth";
+import { useNavigate } from "@tanstack/react-router";
 
 const Wrapper = styled.div`
    position: relative;
@@ -17,10 +19,16 @@ const Arrow = styled(ChevronDownIcon, {
    transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
 `;
 
-const ProfileManage = () => {
+const ProfileManageSelector = () => {
    const [isOpen, setIsOpen] = useState(false);
+   const navigate = useNavigate();
 
    const toggleMenu = () => setIsOpen(!isOpen);
+
+   const handleLogOut = () => {
+      authStore.logout();
+      navigate({ to: "/signin" });
+   };
 
    return (
       <Wrapper>
@@ -31,11 +39,11 @@ const ProfileManage = () => {
 
          <Dropdown $isOpen={isOpen}>
             <MenuItem>Edit</MenuItem>
-            <MenuItem>Logout</MenuItem>
+            <MenuItem onClick={handleLogOut}>Logout</MenuItem>
             <MenuItem variant="delete">Delete account</MenuItem>
          </Dropdown>
       </Wrapper>
    );
 };
 
-export default ProfileManage;
+export default ProfileManageSelector;
