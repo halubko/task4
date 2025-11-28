@@ -1,11 +1,15 @@
 import styled from "@emotion/styled";
 import ProfileManageSelector from "@/modules/profile/components/ui/ProfileManageSelector.tsx";
+import { Route } from "@/routes/_main/profile/$profileId.ts";
+import { authStore } from "@/modules/auth";
 
 const Wrapper = styled.h2`
    display: flex;
    font-weight: 700;
-   padding-left: 8px;
+   padding: 0 8px;
+   box-sizing: border-box;
    justify-content: space-between;
+   align-items: center;
    width: 100%;
 `;
 
@@ -15,10 +19,11 @@ interface ProfileFullNameProps {
 }
 
 const ProfileFullName = ({ firstName, lastName }: ProfileFullNameProps) => {
+   const { profileId } = Route.useParams();
    return (
       <Wrapper>
          {firstName + " " + lastName}
-         <ProfileManageSelector />
+         {Number(profileId) === authStore.id && <ProfileManageSelector />}
       </Wrapper>
    );
 };
