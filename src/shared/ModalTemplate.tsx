@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import type { PropsWithChildren } from "react";
 import { postUIStore } from "@/modules/posts";
 import { X } from "lucide-react";
+import { profileStore } from "@/modules/profile";
 
 const ModalBackground = styled.div`
    position: fixed;
@@ -43,11 +44,16 @@ const CloseModalButton = styled.button`
 `;
 
 const ModalTemplate = ({ children }: PropsWithChildren) => {
+   const handleClose = () => {
+      postUIStore.closeAllModal();
+      profileStore.closeAllModals();
+   };
+
    return (
       <ModalBackground onClick={() => postUIStore.closeAllModal()}>
          <ModalContainer onClick={(e) => e.stopPropagation()}>
             {children}
-            <CloseModalButton onClick={() => postUIStore.closeAllModal()}>
+            <CloseModalButton onClick={handleClose}>
                <X />
             </CloseModalButton>
          </ModalContainer>
