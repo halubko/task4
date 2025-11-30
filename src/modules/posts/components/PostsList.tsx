@@ -7,8 +7,7 @@ import { mokPosts } from "@/modules/posts/data/mokPosts.ts";
 import PostModal from "@/modules/posts/components/PostModal.tsx";
 import PostCreateButton from "@/modules/posts/components/ui/PostCreateButton.tsx";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
-import { useLocation } from "@tanstack/react-router";
-import { Route } from "@/routes/_main/profile/$profileId.ts";
+import { useLocation, useParams } from "@tanstack/react-router";
 import { authStore } from "@/modules/auth";
 
 const Wrapper = styled.div`
@@ -26,7 +25,7 @@ export const PostsList = () => {
    const { data, fetchNextPage, isFetching } = useGetPosts();
    const { ref, inView } = useInView();
    const { pathname } = useLocation();
-   const { profileId } = Route.useParams();
+   const { profileId } = useParams({ strict: false });
 
    useEffect(() => {
       if (inView) {
