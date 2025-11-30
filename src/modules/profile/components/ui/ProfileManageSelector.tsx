@@ -83,6 +83,10 @@ const ProfileManageSelector = observer(() => {
 
    const toggleMenu = () => setIsOpen(!isOpen);
 
+   const handleEdit = () => {
+      navigate({ to: "/profile/edit" });
+   };
+
    const handleLogOut = () => {
       authStore.logout();
       queryClient.clear();
@@ -102,7 +106,7 @@ const ProfileManageSelector = observer(() => {
          </Button>
 
          <Dropdown $isOpen={isOpen}>
-            <MenuItem>Edit</MenuItem>
+            <MenuItem onClick={handleEdit}>Edit</MenuItem>
             <MenuItem onClick={handleLogOut}>Logout</MenuItem>
             <MenuItem variant="delete" onClick={handleDeleteUser}>
                Delete account
