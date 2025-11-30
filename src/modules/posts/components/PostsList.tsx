@@ -8,6 +8,8 @@ import PostModal from "@/modules/posts/components/PostModal.tsx";
 import PostCreateButton from "@/modules/posts/components/ui/PostCreateButton.tsx";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 import { useLocation } from "@tanstack/react-router";
+import { Route } from "@/routes/_main/profile/$profileId.ts";
+import { authStore } from "@/modules/auth";
 
 const Wrapper = styled.div`
    display: flex;
@@ -24,6 +26,7 @@ export const PostsList = () => {
    const { data, fetchNextPage, isFetching } = useGetPosts();
    const { ref, inView } = useInView();
    const { pathname } = useLocation();
+   const { profileId } = Route.useParams();
 
    useEffect(() => {
       if (inView) {
@@ -33,7 +36,7 @@ export const PostsList = () => {
 
    return (
       <Wrapper>
-         <PostCreateButton />
+         {(Number(profileId) === authStore.id || pathname === "/posts") && <PostCreateButton />}
          {data?.pages.map((page, i) => (
             <Fragment key={i}>
                {/* Mok data added only for /posts. */}
