@@ -7,6 +7,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginQuery from '@tanstack/eslint-plugin-query'
+import pluginRouter from '@tanstack/eslint-plugin-router'
 
 export default defineConfig([
    globalIgnores(["dist", "src/routeTree.gen.ts"]),
@@ -20,6 +21,7 @@ export default defineConfig([
          eslintConfigPrettier,
          eslintPluginPrettierRecommended,
          ...pluginQuery.configs['flat/recommended'],
+         ...pluginRouter.configs['flat/recommended'],
       ],
       languageOptions: {
          ecmaVersion: 2020,

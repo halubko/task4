@@ -1,37 +1,48 @@
 import styled from "@emotion/styled";
-import { House, LogIn, MessageCircle, User } from "lucide-react";
+import { House, LogIn, MessageCircle } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { observer } from "mobx-react-lite";
+import { authStore } from "@/modules/auth";
+import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
 
 const Nav = styled.nav`
    display: flex;
    align-items: center;
    justify-content: space-between;
-   gap: 1rem;
+   min-width: 120px;
    svg {
-      stroke: ${(props) => props.theme.colors.text.link};
+      stroke: ${({ theme }) => theme.colors.text.link};
    }
-   & > .active > svg {
-      stroke: ${(props) => props.theme.colors.text.link_selected};
+   & > .active {
+      > img {
+         border: 2px solid ${({ theme }) => theme.colors.text.link_selected};
+         padding: 5px;
+         transition: all 0.2s ease-in-out;
+      }
+      > svg {
+         stroke: ${({ theme }) => theme.colors.text.link_selected};
+      }
    }
 `;
 
+const NavLink = styled(Link)`
+   display: flex;
+   align-items: center;
+`;
+
 const Navbar = observer(() => {
-   const isAuth = false;
+   const { isAuth } = authStore;
 
    return (
       <Nav>
-         <Link to="/posts">
+         <NavLink to="/posts">
             <House />
-         </Link>
-         <Link to="/chats">
+         </NavLink>
+         <NavLink to="/chats">
             <MessageCircle />
-         </Link>
+         </NavLink>
          {isAuth ? (
-            <Link to="/profile">
-               {/* Should be changed on user avatar */}
-               <User />
-            </Link>
+            <ProfileAvatarLink src={authStore.profilePictureUrl} userId={authStore.id} />
          ) : (
             <Link to="/signin">
                <LogIn />
