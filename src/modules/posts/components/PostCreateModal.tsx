@@ -8,7 +8,6 @@ import { observer } from "mobx-react-lite";
 import FormTextarea from "@/shared/FormElements/FormTextarea.tsx";
 import useCreatePost from "@/modules/posts/hooks/useCreatePost.ts";
 import { authStore } from "@/modules/auth";
-import type { CreateFormValues } from "@/modules/posts/interfaces/CreateFormValues.interfaces.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreatePostSchema, type CreatePostSchemaType } from "@/modules/posts/utils/validation.ts";
 import { CreatePostFormHeader } from "@/modules/posts/components/ui/CreatePostFormHeader.tsx";
@@ -34,7 +33,7 @@ export const PostCreateModal = observer(() => {
       formState: { errors },
    } = methods;
 
-   const onSubmit: SubmitHandler<CreateFormValues> = (data) => {
+   const onSubmit: SubmitHandler<CreatePostSchemaType> = (data) => {
       mutate({
          title: data.title,
          body: data.body,

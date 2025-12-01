@@ -9,6 +9,7 @@ import PostCreateButton from "@/modules/posts/components/ui/PostCreateButton.tsx
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 import { useLocation, useParams } from "@tanstack/react-router";
 import { authStore } from "@/modules/auth";
+import { observer } from "mobx-react-lite";
 
 const Wrapper = styled.div`
    display: flex;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
    box-sizing: border-box;
 `;
 
-export const PostsList = () => {
+export const PostsList = observer(() => {
    const { data, fetchNextPage, isFetching } = useGetPosts();
    const { ref, inView } = useInView();
    const { pathname } = useLocation();
@@ -50,4 +51,4 @@ export const PostsList = () => {
          <PostModal />
       </Wrapper>
    );
-};
+});
