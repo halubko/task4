@@ -1,18 +1,18 @@
 import { makeAutoObservable } from "mobx";
 
 class ProfileStore {
-   isConfirmeModalOpen: boolean = false;
+   isConfirmModalOpen: boolean = false;
 
    constructor() {
       makeAutoObservable(this);
    }
 
-   setConfirmeModalOpen(open: boolean) {
-      this.isConfirmeModalOpen = open;
+   setConfirmModalOpen(open: boolean) {
+      this.isConfirmModalOpen = open;
    }
 
    closeAllModals() {
-      this.isConfirmeModalOpen = false;
+      this.isConfirmModalOpen = false;
    }
 }
 

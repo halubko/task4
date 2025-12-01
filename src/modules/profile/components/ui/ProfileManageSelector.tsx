@@ -94,7 +94,7 @@ const ProfileManageSelector = observer(() => {
    };
 
    const handleDeleteUser = () => {
-      ProfileStore.setConfirmeModalOpen(true);
+      ProfileStore.setConfirmModalOpen(true);
       setIsOpen(false);
    };
 

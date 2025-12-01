@@ -17,17 +17,14 @@ const Wrapper = styled.div`
 export const ProfileConfirmModal = observer(() => {
    const { mutate } = useDeleteUser();
 
-   if (!ProfileStore.isConfirmeModalOpen) return null;
+   if (!ProfileStore.isConfirmModalOpen) return null;
 
    return (
       <ModalTemplate>
          <Wrapper>
             Are you sure you want to delete this profile?
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-               <BaseButton
-                  type="secondary"
-                  onClick={() => ProfileStore.setConfirmeModalOpen(false)}
-               >
+               <BaseButton type="secondary" onClick={() => ProfileStore.setConfirmModalOpen(false)}>
                   Close
                </BaseButton>
                <BaseButton type="primary" onClick={() => mutate(authStore.id)}>

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import ProfileManageSelector from "@/modules/profile/components/ui/ProfileManageSelector.tsx";
 import { Route } from "@/routes/_main/profile/$profileId.ts";
 import { authStore } from "@/modules/auth";
+import { observer } from "mobx-react-lite";
 
 const Wrapper = styled.h2`
    display: flex;
@@ -18,7 +19,7 @@ interface ProfileFullNameProps {
    lastName: string;
 }
 
-const ProfileFullName = ({ firstName, lastName }: ProfileFullNameProps) => {
+const ProfileFullName = observer(({ firstName, lastName }: ProfileFullNameProps) => {
    const { profileId } = Route.useParams();
    return (
       <Wrapper>
@@ -26,6 +27,6 @@ const ProfileFullName = ({ firstName, lastName }: ProfileFullNameProps) => {
          {Number(profileId) === authStore.id && <ProfileManageSelector />}
       </Wrapper>
    );
-};
+});
 
 export default ProfileFullName;
