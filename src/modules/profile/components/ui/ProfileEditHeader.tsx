@@ -3,7 +3,7 @@ import { ChevronLeft, UserPen } from "lucide-react";
 import ProfileAvatar from "@/modules/profile/components/ui/ProfileAvatar.tsx";
 import { authStore } from "@/modules/auth";
 import { observer } from "mobx-react-lite";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 
 const Wrapper = styled.div`
    display: flex;
@@ -35,16 +35,15 @@ const CloseModalButton = styled(Link)`
 
 const ProfileEditHeader = observer(() => {
    const avatar = authStore.profilePictureUrl;
+   const { history } = useRouter();
 
    return (
       <Wrapper>
-         <CloseModalButton to={"/profile"}>
+         <CloseModalButton onClick={() => history.back()}>
             <ChevronLeft />
          </CloseModalButton>
          <h1 style={{ fontSize: "24px" }}>Edit Profile</h1>
-         <div>
-            {avatar ? <ProfileAvatar src={authStore.profilePictureUrl} /> : <UserPen size={42} />}
-         </div>
+         {avatar ? <ProfileAvatar src={avatar} /> : <UserPen size={42} />}
       </Wrapper>
    );
 });
