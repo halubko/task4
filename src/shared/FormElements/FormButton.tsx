@@ -21,7 +21,7 @@ interface FormButton extends ButtonHTMLAttributes<HTMLButtonElement> {
    variant?: "primary" | "secondary";
 }
 
-const BaseButton = ({ children, type = "button", ...props }: PropsWithChildren<FormButton>) => {
+const FormButton = ({ children, type = "button", ...props }: PropsWithChildren<FormButton>) => {
    return (
       <Button type={type} {...props}>
          {children}
@@ -29,4 +29,4 @@ const BaseButton = ({ children, type = "button", ...props }: PropsWithChildren<F
    );
 };
 
-export default BaseButton;
+export default FormButton;

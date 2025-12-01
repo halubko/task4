@@ -50,7 +50,7 @@ const ModalTemplate = ({ children }: PropsWithChildren) => {
    };
 
    return (
-      <ModalBackground onClick={() => postUIStore.closeAllModal()}>
+      <ModalBackground onClick={handleClose}>
          <ModalContainer onClick={(e) => e.stopPropagation()}>
             {children}
             <CloseModalButton onClick={handleClose}>
