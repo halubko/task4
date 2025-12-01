@@ -7,9 +7,11 @@ const Wrapper = styled.div`
    width: 100%;
    display: flex;
    justify-content: center;
-   background-color: ${(props) => props.theme.colors.content_bg};
+   background-color: ${({ theme }) => theme.colors.background.content};
    position: sticky;
    top: 0;
+   margin-bottom: 12px;
+   z-index: 2;
 `;
 
 const MainContent = styled.header`
@@ -19,10 +21,6 @@ const MainContent = styled.header`
    justify-content: space-between;
    align-items: center;
    padding: 0.5rem;
-   svg,
-   h1,
-   a {
-   }
 `;
 
 const LogoWrapper = styled(Link)`
@@ -38,7 +36,7 @@ const H1 = styled.h1`
    font-size: 1.6rem;
 `;
 
-const Header = () => {
+const MainHeader = () => {
    return (
       <Wrapper>
          <MainContent>
@@ -52,4 +50,4 @@ const Header = () => {
    );
 };
 
-export default Header;
+export default MainHeader;

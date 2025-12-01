@@ -1,10 +1,10 @@
 import { Outlet } from "@tanstack/react-router";
-import Header from "@/shared/Header.tsx";
+import MainHeader from "@/shared/MainHeader.tsx";
 
 const MainLayout = () => {
    return (
       <>
-         <Header />
+         <MainHeader />
          <Outlet />
       </>
    );
