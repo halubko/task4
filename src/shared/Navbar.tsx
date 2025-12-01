@@ -25,17 +25,22 @@ const Nav = styled.nav`
    }
 `;
 
+const NavLink = styled(Link)`
+   display: flex;
+   align-items: center;
+`;
+
 const Navbar = observer(() => {
    const { isAuth } = authStore;
 
    return (
       <Nav>
-         <Link to="/posts">
+         <NavLink to="/posts">
             <House />
-         </Link>
-         <Link to="/chats">
+         </NavLink>
+         <NavLink to="/chats">
             <MessageCircle />
-         </Link>
+         </NavLink>
          {isAuth ? (
             <ProfileAvatarLink src={authStore.profilePictureUrl} userId={authStore.id} />
          ) : (
