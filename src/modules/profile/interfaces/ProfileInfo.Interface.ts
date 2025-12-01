@@ -19,3 +19,16 @@ export interface AddressInterface {
    city: string;
    country: string;
 }
+
+export interface ProfileUpdateInterface {
+   firstName: string;
+   lastName: string;
+   email: string;
+   birthDate: string;
+   university: string;
+   company: {
+      name: string;
+   };
+   username: string;
+   image: string;
+}

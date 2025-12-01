@@ -1,0 +1,26 @@
+import { useMutation } from "@tanstack/react-query";
+import { updateUser } from "@/modules/profile/api/api.ts";
+import { useNavigate } from "@tanstack/react-router";
+import { toast } from "react-toastify";
+import type {
+   ProfileInfoInterface,
+   ProfileUpdateInterface,
+} from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
+
+const useUpdateUser = (userId: number) => {
+   const navigate = useNavigate();
+
+   return useMutation<ProfileInfoInterface, Error, ProfileUpdateInterface>({
+      mutationKey: ["update", "user"],
+      mutationFn: (formData) => updateUser(userId, formData),
+      onSuccess: () => {
+         toast.success("Profile updated successfully.");
+         navigate({ to: `/profile/${userId}` });
+      },
+      onError: (error) => {
+         toast.error("Error updating profile: " + error.message);
+      },
+   });
+};
+
+export default useUpdateUser;
