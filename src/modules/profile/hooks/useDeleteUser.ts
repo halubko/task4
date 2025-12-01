@@ -3,6 +3,7 @@ import { deleteUser } from "@/modules/profile/api/api.ts";
 import { toast } from "react-toastify";
 import { authStore } from "@/modules/auth";
 import { useNavigate } from "@tanstack/react-router";
+import { profileStore } from "@/modules/profile";
 
 const useDeleteUser = () => {
    const navigate = useNavigate();
@@ -14,6 +15,7 @@ const useDeleteUser = () => {
       onSuccess: () => {
          toast.success("Account deleted!");
          authStore.logout();
+         profileStore.closeAllModals();
          queryClient.clear();
          navigate({ to: "/signin" });
       },
