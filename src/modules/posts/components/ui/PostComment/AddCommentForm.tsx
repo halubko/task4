@@ -57,7 +57,12 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
       <FormProvider {...methods}>
          <Form onSubmit={methods.handleSubmit(onSubmit)}>
             <ProfileAvatarLink userId={authStore.id} src={authStore.profilePictureUrl} />
-            <FormInput type="text" variant="comment" placeholder="Leave a comment" />
+            <FormInput
+               type="text"
+               variant="comment"
+               placeholder="Leave a comment"
+               autoComplete="off"
+            />
             <div>
                <FormButton
                   type="submit"

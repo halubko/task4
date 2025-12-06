@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useFormContext } from "react-hook-form";
+import type { InputHTMLAttributes } from "react";
 
 const Input = styled.input`
    border: ${({ theme }) => theme.borders.base};
@@ -16,16 +17,16 @@ const Input = styled.input`
    }
 `;
 
-interface FormInputProps {
+interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
    type: "text" | "password" | "email";
    placeholder?: string;
    variant: string;
 }
 
-const FormInput = ({ type = "text", placeholder, variant }: FormInputProps) => {
+const FormInput = ({ type = "text", placeholder, variant, ...props }: FormInputProps) => {
    const { register } = useFormContext();
 
-   return <Input type={type} {...register(variant)} placeholder={placeholder} />;
+   return <Input type={type} {...register(variant)} placeholder={placeholder} {...props} />;
 };
 
 export default FormInput;
