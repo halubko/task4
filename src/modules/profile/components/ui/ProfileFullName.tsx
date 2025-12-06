@@ -3,6 +3,7 @@ import ProfileManageSelector from "@/modules/profile/components/ui/ProfileManage
 import { Route } from "@/routes/_main/profile/$profileId.ts";
 import { authStore } from "@/modules/auth";
 import { observer } from "mobx-react-lite";
+import { Link } from "@tanstack/react-router";
 
 const Wrapper = styled.h2`
    display: flex;
@@ -14,6 +15,21 @@ const Wrapper = styled.h2`
    width: 100%;
 `;
 
+const ProfileChatLink = styled(Link)`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: ${({ theme }) => theme.borders.base};
+   border-radius: 8px;
+   text-decoration: none;
+   font-size: 1rem;
+   padding: 8px;
+   color: ${({ theme }) => theme.colors.text.primary};
+   &:hover {
+      background-color: ${({ theme }) => theme.colors.background.secondary_button_hover};
+   }
+`;
+
 interface ProfileFullNameProps {
    firstName: string;
    lastName: string;
@@ -21,10 +37,15 @@ interface ProfileFullNameProps {
 
 const ProfileFullName = observer(({ firstName, lastName }: ProfileFullNameProps) => {
    const { profileId } = Route.useParams();
+   const id = Number(profileId);
    return (
       <Wrapper>
          {firstName + " " + lastName}
-         {Number(profileId) === authStore.id && <ProfileManageSelector />}
+         {id === authStore.id ? (
+            <ProfileManageSelector />
+         ) : (
+            <ProfileChatLink to={`/messages/${id}`}>Go to chat</ProfileChatLink>
+         )}
       </Wrapper>
    );
 });
