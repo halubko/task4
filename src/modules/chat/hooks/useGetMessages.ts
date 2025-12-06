@@ -5,6 +5,7 @@ const useGetMessages = (recipientId: number) => {
    return useQuery({
       queryKey: ["get", "messages", recipientId],
       queryFn: () => getMessagesWithUserId(Number(recipientId)),
+      staleTime: Infinity,
    });
 };
 
