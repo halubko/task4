@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { authStore, useCheckToken, useRefreshToken } from "@/modules/auth";
 import { useEffect } from "react";
 import { StyledToastContainer } from "@/assets/styles/toast.ts";
+import { useWebSocket } from "@/modules/chat";
 
 export const Route = createRootRouteWithContext<{
    queryClient: QueryClient;
@@ -22,6 +23,7 @@ function RootComponent() {
    const { mutate, isSuccess } = useRefreshToken();
    const { pathname } = useLocation();
    const navigate = useNavigate();
+   const { connect, disconnect } = useWebSocket();
 
    useEffect(() => {
       if (user) {
@@ -36,6 +38,13 @@ function RootComponent() {
          }
       }
    }, [error, isSuccess, mutate, navigate, pathname, refetch, user]);
+
+   useEffect(() => {
+      if (user) {
+         connect();
+      }
+      return () => disconnect();
+   }, [connect, disconnect, user]);
 
    return (
       <>
