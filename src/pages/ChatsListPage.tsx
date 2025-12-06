@@ -1,3 +1,5 @@
-const ChatsPage = () => {};
+import { Outlet } from "@tanstack/react-router";
 
-export default ChatsPage;
+const ChatsListPage = () => <Outlet />;
+
+export default ChatsListPage;
