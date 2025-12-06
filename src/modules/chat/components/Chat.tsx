@@ -24,7 +24,7 @@ export const Chat = () => {
          {data && (
             <div style={{ width: "100%" }}>
                <Wrapper>
-                  <ChatHeader userId={profileId} profileName={data.firstName} />
+                  <ChatHeader userId={profileId} profileName={data.firstName} src={data.image} />
                   <ChatMain profileId={profileId} />
                   <ChatFooter />
                </Wrapper>

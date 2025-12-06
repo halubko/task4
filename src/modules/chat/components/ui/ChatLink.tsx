@@ -48,7 +48,11 @@ const ChatLink = ({ chatInfo }: ChatLinkProps) => {
          onClick={() => navigate({ to: `/messages/${recipientId}` })}
       >
          <ElementWrapper>
-            <ProfileAvatarLink userId={recipientId} profileName={data?.firstName} />
+            <ProfileAvatarLink
+               userId={recipientId}
+               profileName={data?.firstName}
+               src={data?.image}
+            />
          </ElementWrapper>
          <MessagePreview>
             {last_sender}: {last_message}
