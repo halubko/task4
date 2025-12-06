@@ -10,11 +10,10 @@ const Wrapper = styled.div`
    justify-content: space-around;
    max-width: 1067px;
    width: 100%;
-   justify-self: center;
+   margin: 0 auto 1rem auto;
    background-color: ${({ theme }) => theme.colors.background.content};
    border: ${({ theme }) => theme.borders.base};
    border-radius: 8px;
-   margin-bottom: 1rem;
    padding: 8px;
    gap: 8px;
    box-sizing: border-box;

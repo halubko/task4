@@ -28,9 +28,9 @@ import { formatBirthDate } from "@/modules/profile/utils/userInfoConverters.ts";
 import { useEffect } from "react";
 
 const Wrapper = styled.div`
-   max-width: 1067px;
+   max-width: 550px;
    width: 100%;
-   justify-self: center;
+   margin: 0 auto;
    padding: 0 8px;
    box-sizing: border-box;
 `;
