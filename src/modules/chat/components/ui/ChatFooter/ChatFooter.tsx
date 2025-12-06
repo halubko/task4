@@ -5,6 +5,7 @@ import { SendHorizonal } from "lucide-react";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
 import { useWebSocket } from "@/modules/chat";
 import { Route } from "@/routes/_main/messages/$userId.ts";
+import { useEffect } from "react";
 
 const Form = styled.form`
    display: flex;
@@ -26,6 +27,10 @@ const ChatFooter = () => {
    const methods = useForm<FormInputInterface>();
    const { sendMessage } = useWebSocket();
    const { userId } = Route.useParams();
+
+   useEffect(() => {
+      methods.setFocus("message");
+   }, [methods]);
 
    const onSubmit: SubmitHandler<FormInputInterface> = ({ message }) => {
       if (message.trim() !== "") {
