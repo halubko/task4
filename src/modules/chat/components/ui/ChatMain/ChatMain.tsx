@@ -6,6 +6,7 @@ import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 import { authStore } from "@/modules/auth";
 import { useEffect } from "react";
 import socketStore from "@/modules/chat/store/socket.store.ts";
+import { mokMessages } from "@/modules/chat/data/mokMessages.ts";
 
 const Wrapper = styled.div`
    display: flex;
@@ -16,16 +17,20 @@ const Wrapper = styled.div`
 `;
 
 const ChatMain = observer(({ profileId }: { profileId: number }) => {
-   const { data: messagesFromServer, isLoading } = useGetMessages(profileId);
+   // Loading messages from local web-server
+   const { data: messagesFromServer, isLoading, isError } = useGetMessages(profileId);
 
    const { id: userId } = authStore;
    const { messages } = socketStore;
 
    useEffect(() => {
-      messagesFromServer?.forEach((message) => {
-         socketStore.addMessage(message);
-      });
-   }, [messagesFromServer]);
+      if (messagesFromServer) {
+         socketStore.loadMessages(messagesFromServer);
+      }
+      if (isError) {
+         socketStore.loadMessages(mokMessages);
+      }
+   }, [messagesFromServer, isError]);
 
    if (isLoading) {
       return <LoadingIndicator />;
