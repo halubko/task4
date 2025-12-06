@@ -29,7 +29,6 @@ export const useWebSocket = () => {
                if (!pathname.startsWith("/messages")) {
                   toast(`${messageData.senderName}: ${messageData.content}`);
                }
-               console.log("Received message", messageData);
                socketStore.addMessage(messageData);
                break;
             }
