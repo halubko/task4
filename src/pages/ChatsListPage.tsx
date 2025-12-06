@@ -1,5 +1,5 @@
-import { Outlet } from "@tanstack/react-router";
+import { ChatLayout } from "@/modules/chat";
 
-const ChatsListPage = () => <Outlet />;
+const ChatsListPage = () => <ChatLayout />;
 
 export default ChatsListPage;
