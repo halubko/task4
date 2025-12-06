@@ -12,6 +12,10 @@ class SocketStore {
    addMessage(message: MessageInterface) {
       this.messages.push(message);
    }
+
+   loadMessages(messages: MessageInterface[]) {
+      this.messages = messages;
+   }
 }
 
 export default new SocketStore();
