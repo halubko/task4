@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import useSetComment from "@/modules/posts/hooks/useSetComment.ts";
+import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 
 const Form = styled.form`
    display: flex;
@@ -33,7 +34,7 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
       mode: "onSubmit",
    });
 
-   const { mutate } = useSetComment({ postId, methods });
+   const { mutate, isPending } = useSetComment({ postId, methods });
 
    const {
       formState: { errors },
@@ -64,12 +65,16 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
                autoComplete="off"
             />
             <div>
-               <FormButton
-                  type="submit"
-                  style={{ padding: "7px", display: "flex", alignItems: "center" }}
-               >
-                  <SendHorizonal />
-               </FormButton>
+               {isPending ? (
+                  <LoadingIndicator size="sm" />
+               ) : (
+                  <FormButton
+                     type="submit"
+                     style={{ padding: "7px", display: "flex", alignItems: "center" }}
+                  >
+                     <SendHorizonal />
+                  </FormButton>
+               )}
             </div>
          </Form>
       </FormProvider>

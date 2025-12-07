@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-const LoadingIndicatorWrapper = styled.div`
+const LoadingIndicatorWrapper = styled.div<{ size: "default" | "sm" }>`
    display: flex;
    align-items: center;
    justify-content: center;
    justify-self: center;
    gap: 6px;
    background-color: ${({ theme }) => theme.colors.background.content};
-   padding: 8px;
+   padding: ${({ size }) => (size === "default" ? "8px" : "7.5px")};
    border-radius: 4px;
 `;
 
@@ -27,9 +27,9 @@ const blink = keyframes`
   }
 `;
 
-const Dot = styled.span`
-   width: 10px;
-   height: 10px;
+const Dot = styled.span<{ size: "default" | "sm" }>`
+   width: ${({ size }) => (size === "default" ? "10px" : "5px")};
+   height: ${({ size }) => (size === "default" ? "10px" : "5px")};
    border-radius: 50%;
    background-color: ${({ theme }) => theme.colors.text.primary};
    animation: ${blink} 1.4s infinite both;
@@ -41,12 +41,16 @@ const Dot = styled.span`
    }
 `;
 
-const LoadingIndicator = () => {
+interface LoadingIndicatorProps {
+   size?: "default" | "sm";
+}
+
+const LoadingIndicator = ({ size = "default" }: LoadingIndicatorProps) => {
    return (
-      <LoadingIndicatorWrapper>
-         <Dot />
-         <Dot />
-         <Dot />
+      <LoadingIndicatorWrapper size={size}>
+         <Dot size={size} />
+         <Dot size={size} />
+         <Dot size={size} />
       </LoadingIndicatorWrapper>
    );
 };
