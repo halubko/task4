@@ -44,7 +44,7 @@ export const PostsList = observer(() => {
                {page.posts.map((post) => (
                   <Post key={post.id} {...post} />
                ))}
-               <div ref={ref}></div>
+               <div ref={ref} style={{ height: "1px" }}></div>
             </Fragment>
          ))}
          {isFetching && <LoadingIndicator />}
