@@ -34,7 +34,7 @@ const PostDescription = ({ title, description }: PostDescriptionProps) => {
    return (
       <Wrapper>
          <Title>{title}</Title>
-         {PostUIStore.openedPostModal ? (
+         {PostUIStore.selectedPost ? (
             <DescriptionFull>{description}</DescriptionFull>
          ) : (
             <DescriptionShort>{description}</DescriptionShort>
