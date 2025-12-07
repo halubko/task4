@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import type { MessageInterface } from "@/modules/chat/interfaces/Socket.Interfaces.ts";
-import { getTime } from "@/modules/chat/utils/getTime.ts";
+import { formatDate } from "@/modules/chat/utils/formatDate.ts";
 
 interface StyledProps {
    senderId: number;
@@ -71,7 +71,7 @@ const Message = ({ message, userId }: MessageProps) => {
                {content}
             </MessageContent>
             <MessageTime senderId={senderId} userId={userId}>
-               {getTime(createdAt)}
+               {formatDate(createdAt)}
             </MessageTime>
          </MessageContainer>
       </Wrapper>

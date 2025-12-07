@@ -1,7 +1,4 @@
-import type {
-   AddressInterface,
-   ProfileInfoInterface,
-} from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
+import type { AddressInterface } from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
 
 export const getLocation = ({ city, country }: AddressInterface) => {
    if (country === "United States") {
@@ -17,7 +14,7 @@ export const getBirthDateWithAge = (birthDate: string, age: number) => {
    return date + " (" + age + ")";
 };
 
-export const formatBirthDate = (data: ProfileInfoInterface | undefined) => {
+export const formatBirthDate = (data: { birthDate: string } | undefined) => {
    if (!data) {
       return;
    }
