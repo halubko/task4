@@ -44,7 +44,7 @@ function RootComponent() {
          connect();
       }
       return () => disconnect();
-   }, [connect, disconnect, user]);
+   }, [user]);
 
    return (
       <>
