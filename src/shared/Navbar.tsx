@@ -38,7 +38,7 @@ const Navbar = observer(() => {
          <NavLink to="/posts">
             <House />
          </NavLink>
-         <NavLink to="/chats">
+         <NavLink to="/messages">
             <MessageCircle />
          </NavLink>
          {isAuth ? (

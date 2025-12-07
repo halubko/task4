@@ -10,13 +10,13 @@ interface useSetCommentProps {
 }
 
 const useSetComment = ({ postId, methods }: useSetCommentProps) => {
-   const queryClient = useQueryClient();
+   const { invalidateQueries } = useQueryClient();
 
    return useMutation({
       mutationKey: ["add", "comment"],
       mutationFn: addComment,
       onSuccess: () => {
-         queryClient.invalidateQueries({ queryKey: ["get", "post", "comments", postId] });
+         invalidateQueries({ queryKey: ["get", "post", "comments", postId] });
          methods.reset();
       },
       onError: (error) => {
