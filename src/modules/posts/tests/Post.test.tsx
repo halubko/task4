@@ -61,7 +61,7 @@ vi.mock("@/modules/posts/hooks/useGetComments", () => {
    };
 });
 
-const renderWithTheme = (children: ReactElement) => {
+const renderWithProviders = (children: ReactElement) => {
    return render(
       <QueryClientProvider client={queryClient}>
          <ThemeProvider theme={theme}>{children}</ThemeProvider>
@@ -82,7 +82,7 @@ const mockPost: PostInterface = {
 
 describe("Post Component", () => {
    beforeAll(() => {
-      renderWithTheme(<Post {...mockPost} />);
+      renderWithProviders(<Post {...mockPost} />);
    });
 
    it("testing render component", () => {
