@@ -1,4 +1,4 @@
-export const mokPosts = [
+export const mockPosts = [
    {
       id: 120,
       title: "Test data 1 with photo",

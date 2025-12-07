@@ -3,7 +3,7 @@ import Post from "@/modules/posts/components/Post.tsx";
 import styled from "@emotion/styled";
 import { useInView } from "react-intersection-observer";
 import { Fragment, useEffect } from "react";
-import { mokPosts } from "@/modules/posts/data/mokPosts.ts";
+import { mockPosts } from "@/modules/posts/data/mockPosts.ts";
 import PostModal from "@/modules/posts/components/PostModal.tsx";
 import PostCreateButton from "@/modules/posts/components/ui/PostCreateButton.tsx";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
@@ -40,7 +40,7 @@ export const PostsList = observer(() => {
          {data?.pages.map((page, i) => (
             <Fragment key={i}>
                {/* Mok data added only for /posts. */}
-               {pathname === "/posts" && mokPosts.map((post) => <Post key={post.id} {...post} />)}
+               {pathname === "/posts" && mockPosts.map((post) => <Post key={post.id} {...post} />)}
                {page.posts.map((post) => (
                   <Post key={post.id} {...post} />
                ))}

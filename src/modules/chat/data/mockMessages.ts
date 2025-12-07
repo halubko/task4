@@ -1,6 +1,6 @@
 import type { MessageInterface } from "@/modules/chat/interfaces/Socket.Interfaces.ts";
 
-export const mokMessages: MessageInterface[] = [
+export const mockMessages: MessageInterface[] = [
    {
       id: crypto.randomUUID(),
       senderId: 2,

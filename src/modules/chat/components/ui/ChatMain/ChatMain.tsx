@@ -6,7 +6,7 @@ import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 import { authStore } from "@/modules/auth";
 import { useEffect } from "react";
 import socketStore from "@/modules/chat/store/socket.store.ts";
-import { mokMessages } from "@/modules/chat/data/mokMessages.ts";
+import { mockMessages } from "@/modules/chat/data/mockMessages.ts";
 
 const Wrapper = styled.div`
    display: flex;
@@ -28,7 +28,7 @@ const ChatMain = observer(({ profileId }: { profileId: number }) => {
          socketStore.loadMessages(messagesFromServer);
       }
       if (isError) {
-         socketStore.loadMessages(mokMessages);
+         socketStore.loadMessages(mockMessages);
       }
    }, [messagesFromServer, isError]);
 

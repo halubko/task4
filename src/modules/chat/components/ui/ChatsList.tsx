@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { mokChatsList } from "@/modules/chat/data/mokChatsList.ts";
+import { mockChatsList } from "@/modules/chat/data/mockChatsList.ts";
 import ChatLink from "@/modules/chat/components/ui/ChatLink.tsx";
 
 const Wrapper = styled.div`
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const ChatsList = () => {
    return (
       <Wrapper>
-         {mokChatsList.map((chat) => (
+         {mockChatsList.map((chat) => (
             <ChatLink chatInfo={chat} key={chat.id} />
          ))}
       </Wrapper>
