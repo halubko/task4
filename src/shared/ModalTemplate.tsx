@@ -18,7 +18,7 @@ const ModalContainer = styled.div`
    width: 100%;
    position: relative;
    padding: 0 10px;
-   margin: 10px auto;
+   margin: auto;
 `;
 
 const CloseModalButton = styled.button`
