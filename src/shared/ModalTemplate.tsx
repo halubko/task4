@@ -40,8 +40,8 @@ const CloseModalButton = styled.button`
    }
 
    @media (max-width: 650px) {
-      right: 0;
-      top: -50px;
+      right: 16px;
+      top: 4px;
    }
 `;
 
