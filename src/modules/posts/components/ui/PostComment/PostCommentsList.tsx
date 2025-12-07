@@ -27,6 +27,7 @@ const PostCommentsList = ({ comments, postId }: PostCommentsProps) => {
             </Fragment>
          ))}
          {comments.length > 1 && <hr style={{ margin: "8px 0", opacity: 0.5 }} />}
+         {comments.length <= 1 && <hr style={{ margin: "4px 0", visibility: "hidden" }} />}
          <AddComment postId={postId} />
       </Wrapper>
    );
