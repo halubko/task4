@@ -16,6 +16,7 @@ describe("format date", () => {
 describe("store tests", () => {
    it("should push message to messages state", () => {
       const mockMessage: MessageInterface = {
+         type: "message:receive",
          id: "1",
          senderId: 1,
          senderName: "Test Name",
