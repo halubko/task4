@@ -1,8 +1,8 @@
 export interface MessageInterface {
-   type?: "message:receive";
-   id: string;
-   senderId: number;
-   senderName: string;
+   type: string;
+   id?: string;
+   senderId?: number;
+   senderName?: string;
    content: string;
-   createdAt: string;
+   createdAt?: string;
 }

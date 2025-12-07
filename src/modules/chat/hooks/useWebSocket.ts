@@ -1,12 +1,13 @@
 import socketStore from "@/modules/chat/store/socket.store.ts";
 import { toast } from "react-toastify";
 import { useLocation } from "@tanstack/react-router";
+import { WS_URL } from "@/modules/chat/constants/constants.ts";
 
 export const useWebSocket = () => {
    const { pathname } = useLocation();
 
    const connect = () => {
-      const socket = new WebSocket("ws://localhost:3000");
+      const socket = new WebSocket(WS_URL);
 
       socketStore.socket = socket;
 
@@ -25,11 +26,10 @@ export const useWebSocket = () => {
 
          switch (message.type) {
             case "message:receive": {
-               const messageData = message.data;
                if (!pathname.startsWith("/messages")) {
-                  toast(`${messageData.senderName}: ${messageData.content}`);
+                  toast(`${message.senderName}: ${message.content}`);
                }
-               socketStore.addMessage(messageData);
+               socketStore.addMessage(message);
                break;
             }
          }
@@ -48,6 +48,9 @@ export const useWebSocket = () => {
          recipientId: recipientId,
          content: message_text,
       };
+
+      // Adding for echo server. If you use my local server you should delete line below
+      socketStore.addMessage(message);
 
       socket?.send(JSON.stringify(message));
    };
