@@ -4,8 +4,10 @@ import {
    getBirthDateWithAge,
 } from "@/modules/profile/utils/userInfoConverters.ts";
 import { profileStore } from "@/modules/profile";
+import { render } from "@testing-library/react";
+import ProfileAvatar from "@/modules/profile/components/ui/ProfileAvatar.tsx";
 
-describe("format birthday tests", () => {
+describe("Profile format birthday tests", () => {
    it("should format birth date to YYYY-MM-DD", () => {
       const mockData = {
          id: 1,
@@ -28,12 +30,19 @@ describe("format birthday tests", () => {
    });
 });
 
-describe("store tests", () => {
+describe("Profile store tests", () => {
    it("should open/close modal", () => {
       profileStore.setConfirmModalOpen(true);
       expect(profileStore.isConfirmModalOpen).toBe(true);
 
       profileStore.setConfirmModalOpen(false);
       expect(profileStore.isConfirmModalOpen).toBe(false);
+   });
+});
+
+describe("Profile snapshot tests", () => {
+   it("ProfileAvatar snapshot", () => {
+      const { asFragment } = render(<ProfileAvatar src={"test_img.jpg"} />);
+      expect(asFragment()).toMatchSnapshot();
    });
 });

@@ -1,0 +1,72 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SignInForm snapshot tests > should match the snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="css-c9j9v9-Form ehq45km0"
+  >
+    <div
+      class="css-xbj8qf-Wrapper epdj22p0"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-tv-minimal-play"
+        fill="none"
+        height="42"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="42"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z"
+        />
+        <path
+          d="M7 21h10"
+        />
+        <rect
+          height="14"
+          rx="2"
+          width="20"
+          x="2"
+          y="3"
+        />
+      </svg>
+      <h1
+        style="font-size: 24px;"
+      >
+        Sign up to ErrorTube
+      </h1>
+    </div>
+    <hr
+      style="width: 100%;"
+    />
+    <input
+      class="css-15od59z-Input e1wvcajd0"
+      name="email"
+      placeholder="Email"
+      type="text"
+    />
+    <input
+      class="css-15od59z-Input e1wvcajd0"
+      name="password"
+      placeholder="Password"
+      type="password"
+    />
+    <button
+      class="css-14tllpd-Button e18wk6zk0"
+      type="submit"
+    >
+      Sign In
+    </button>
+    <a
+      href="/signup"
+    >
+      Sign Up
+    </a>
+  </form>
+</DocumentFragment>
+`;

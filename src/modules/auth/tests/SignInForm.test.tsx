@@ -66,3 +66,10 @@ describe("SignInForm RHF + zod tests", () => {
       expect(await screen.findByText(/Password must/i)).not.toBeInTheDocument();
    });
 });
+
+describe("SignInForm snapshot tests", () => {
+   it("should match the snapshot", () => {
+      const { asFragment } = renderWithProviders(<SignInForm />);
+      expect(asFragment()).toMatchSnapshot();
+   });
+});
