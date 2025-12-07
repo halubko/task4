@@ -6,23 +6,19 @@ import { profileStore } from "@/modules/profile";
 
 const ModalBackground = styled.div`
    position: fixed;
-   top: 0;
-   left: 0;
+   inset: 0;
    background-color: rgba(20, 20, 20, 0.7);
-   width: 100%;
-   min-height: 100vh;
    z-index: 2;
    display: flex;
-   align-items: center;
    overflow-y: auto;
 `;
 
 const ModalContainer = styled.div`
    max-width: 550px;
-   margin: 0 auto;
-   position: relative;
    width: 100%;
+   position: relative;
    padding: 0 10px;
+   margin: 10px auto;
 `;
 
 const CloseModalButton = styled.button`
@@ -41,6 +37,11 @@ const CloseModalButton = styled.button`
    &:hover {
       background-color: ${({ theme }) => theme.colors.background.secondary_button_hover};
       border: ${({ theme }) => theme.borders.focus};
+   }
+
+   @media (max-width: 650px) {
+      right: 0;
+      top: -50px;
    }
 `;
 
