@@ -10,14 +10,14 @@ interface useSetCommentProps {
 }
 
 const useSetComment = ({ postId, methods }: useSetCommentProps) => {
-   const { invalidateQueries } = useQueryClient();
+   const queryClient = useQueryClient();
 
    return useMutation({
       mutationKey: ["add", "comment"],
       mutationFn: addComment,
       onSuccess: () => {
-         invalidateQueries({ queryKey: ["get", "post", "comments", postId] });
-         methods.reset();
+         queryClient.invalidateQueries({ queryKey: ["get", "post", "comments", postId] });
+         methods.setValue("comment", "");
       },
       onError: (error) => {
          toast.error("Failed to add a comment: " + error.message);
