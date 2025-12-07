@@ -14,6 +14,7 @@ const ModalBackground = styled.div`
    z-index: 2;
    display: flex;
    align-items: center;
+   overflow-y: auto;
 `;
 
 const ModalContainer = styled.div`
