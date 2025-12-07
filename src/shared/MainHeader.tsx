@@ -11,7 +11,7 @@ const Wrapper = styled.div`
    position: sticky;
    top: 0;
    margin-bottom: 12px;
-   z-index: 2;
+   z-index: 3;
 `;
 
 const MainContent = styled.header`

@@ -8,7 +8,7 @@ const ModalBackground = styled.div`
    position: fixed;
    inset: 0;
    background-color: rgba(20, 20, 20, 0.7);
-   z-index: 2;
+   z-index: 3;
    display: flex;
    overflow-y: auto;
 `;
