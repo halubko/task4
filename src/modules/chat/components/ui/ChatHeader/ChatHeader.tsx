@@ -1,20 +1,9 @@
-import styled from "@emotion/styled";
 import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
-
-const Wrapper = styled.div`
-   display: flex;
-   align-items: center;
-   gap: 10px;
-   padding: 8px;
-   border-bottom: ${({ theme }) => theme.borders.base};
-`;
-
-const OnlineIndicator = styled.div<{ isOnline: boolean }>`
-   border-radius: 50%;
-   background-color: ${({ isOnline }) => (isOnline ? "#2eff36" : "red")};
-   width: 10px;
-   height: 10px;
-`;
+import { ChevronLeft } from "lucide-react";
+import {
+   ChatHeaderWrapper,
+   ReturnButton,
+} from "@/modules/chat/components/styles/ui/ChatHeader/ChatHeader.styles.ts";
 
 interface PostHeaderProps {
    userId: number;
@@ -24,10 +13,15 @@ interface PostHeaderProps {
 
 const ChatHeader = ({ userId, src, profileName }: PostHeaderProps) => {
    return (
-      <Wrapper>
+      <ChatHeaderWrapper>
+         <ReturnButton to="/messages">
+            <ChevronLeft />
+         </ReturnButton>
          <ProfileAvatarLink userId={userId} src={src} profileName={profileName} />
-         <OnlineIndicator isOnline={true} />
-      </Wrapper>
+
+         {/* I don't have backend that allow to set online status */}
+         {/* <OnlineIndicator isOnline={true} /> */}
+      </ChatHeaderWrapper>
    );
 };
 

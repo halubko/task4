@@ -1,11 +1,11 @@
 import { type AxiosResponse } from "axios";
 import type {
    AddUserInterface,
-   UserInfoInterface,
-} from "@/modules/auth/interfaces/UserInfo.Interface.ts";
+   UserInfoInterfaces,
+} from "@/modules/auth/interfaces/UserInfo.Interfaces.ts";
 import axios from "axios";
 import { BASE_URL } from "@/constants/constants.ts";
-import type { RefreshTokensInterface } from "@/modules/auth/interfaces/RefreshTokens.Interface.ts";
+import type { RefreshTokensInterfaces } from "@/modules/auth/interfaces/RefreshTokens.Interfaces.ts";
 
 const axiosInstanceUsers = axios.create({
    baseURL: BASE_URL + "/users",
@@ -16,7 +16,7 @@ const axiosInstanceAuth = axios.create({
 });
 
 export const loginUser = async () => {
-   const response: AxiosResponse<UserInfoInterface> = await axiosInstanceUsers.post("/login", {
+   const response: AxiosResponse<UserInfoInterfaces> = await axiosInstanceUsers.post("/login", {
       username: "emilys",
       password: "emilyspass",
       expiresInMins: 15,
@@ -25,7 +25,7 @@ export const loginUser = async () => {
 };
 
 export const addUser = async ({ firstName, lastName, password, email }: AddUserInterface) => {
-   const response: AxiosResponse<UserInfoInterface> = await axiosInstanceUsers.post("/add", {
+   const response: AxiosResponse<UserInfoInterfaces> = await axiosInstanceUsers.post("/add", {
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -41,7 +41,7 @@ export const checkToken = async () => {
       throw new Error("No access token found");
    }
 
-   const response: AxiosResponse<UserInfoInterface> = await axiosInstanceUsers.get("/me", {
+   const response: AxiosResponse<UserInfoInterfaces> = await axiosInstanceUsers.get("/me", {
       headers: {
          Authorization: `Bearer ${accessToken}`,
       },
@@ -56,7 +56,7 @@ export const refreshToken = async () => {
       throw new Error("No refresh token found");
    }
 
-   const response: AxiosResponse<RefreshTokensInterface> = await axiosInstanceAuth.post(
+   const response: AxiosResponse<RefreshTokensInterfaces> = await axiosInstanceAuth.post(
       "/refresh",
       {
          refreshToken: refreshToken,

@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Profile snapshot tests > ProfileAvatar snapshot 1`] = `
+<DocumentFragment>
+  <img
+    class="css-e9a39f-Img e3nk9l80"
+    src="test_img.jpg"
+  />
+</DocumentFragment>
+`;

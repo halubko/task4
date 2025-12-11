@@ -1,33 +1,8 @@
-import styled from "@emotion/styled";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const Wrapper = styled.div`
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 97%;
-   position: absolute;
-   top: 50%;
-   right: 8px;
-   z-index: 2;
-`;
-
-const Button = styled.button`
-   border: none;
-   border-radius: 50%;
-   padding: 5px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: rgba(34, 34, 34, 0.3);
-   color: ${({ theme }) => theme.colors.text.secondary};
-   cursor: pointer;
-   transition: background-color 0.1s ease-in-out;
-   &:hover {
-      background-color: rgba(34, 34, 34, 0.8);
-      transition: background-color 0.1s ease-in-out;
-   }
-`;
+import {
+   PostChangePhotoButton,
+   PostChangePhotoButtonsWrapper,
+} from "@/modules/posts/components/styles/ui/PostMain/PostChangePhotoButtons.styles.ts";
 
 interface PostControlPhotoButtonsProps {
    currentImage: number;
@@ -53,14 +28,14 @@ const PostChangePhotoButtons = ({
    };
 
    return (
-      <Wrapper>
-         <Button type="button" onClick={handleBack}>
+      <PostChangePhotoButtonsWrapper>
+         <PostChangePhotoButton type="button" onClick={handleBack}>
             <ChevronLeft />
-         </Button>
-         <Button type="button" onClick={handleNext}>
+         </PostChangePhotoButton>
+         <PostChangePhotoButton type="button" onClick={handleNext}>
             <ChevronRight />
-         </Button>
-      </Wrapper>
+         </PostChangePhotoButton>
+      </PostChangePhotoButtonsWrapper>
    );
 };
 

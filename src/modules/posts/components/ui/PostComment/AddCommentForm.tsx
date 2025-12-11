@@ -1,27 +1,16 @@
-import styled from "@emotion/styled";
 import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
 import { authStore } from "@/modules/auth";
 import FormInput from "@/shared/FormElements/FormInput.tsx";
-import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SendHorizonal } from "lucide-react";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
-import { AddCommentSchema, type AddCommentType } from "@/modules/posts/utils/validation.ts";
+import { AddCommentSchema, type AddCommentType } from "@/modules/posts/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import useSetComment from "@/modules/posts/hooks/useSetComment.ts";
-
-const Form = styled.form`
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   background-color: ${({ theme }) => theme.colors.background.content};
-   border-radius: 8px;
-   width: 100%;
-   padding: 4px;
-   box-sizing: border-box;
-   border: ${({ theme }) => theme.borders.base};
-`;
+import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
+import { AddCommForm } from "@/modules/posts/components/styles/ui/PostComment/AddCommentForm.styles.ts";
+import { InlineFormButton } from "@/shared/styles/FormElements/FormButton.styles.ts";
 
 interface AddCommentFormProps {
    postId: number;
@@ -33,7 +22,7 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
       mode: "onSubmit",
    });
 
-   const { mutate } = useSetComment({ postId, methods });
+   const { mutate, isPending } = useSetComment({ postId, methods });
 
    const {
       formState: { errors },
@@ -55,7 +44,7 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
 
    return (
       <FormProvider {...methods}>
-         <Form onSubmit={methods.handleSubmit(onSubmit)}>
+         <AddCommForm onSubmit={methods.handleSubmit(onSubmit)}>
             <ProfileAvatarLink userId={authStore.id} src={authStore.profilePictureUrl} />
             <FormInput
                type="text"
@@ -64,14 +53,15 @@ const AddCommentForm = ({ postId }: AddCommentFormProps) => {
                autoComplete="off"
             />
             <div>
-               <FormButton
-                  type="submit"
-                  style={{ padding: "7px", display: "flex", alignItems: "center" }}
-               >
-                  <SendHorizonal />
-               </FormButton>
+               {isPending ? (
+                  <LoadingIndicator size="sm" />
+               ) : (
+                  <InlineFormButton type="submit">
+                     <SendHorizonal />
+                  </InlineFormButton>
+               )}
             </div>
-         </Form>
+         </AddCommForm>
       </FormProvider>
    );
 };

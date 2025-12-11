@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import PostHeader from "@/modules/posts/components/ui/PostHeader/PostHeader.tsx";
 import PostFooter from "@/modules/posts/components/ui/PostFooter/PostFooter.tsx";
 import type { PostInterface } from "@/modules/posts/interfaces/Post.Interfaces.ts";
@@ -6,13 +5,8 @@ import { useGetProfile } from "@/modules/profile";
 import PostMain from "@/modules/posts/components/ui/PostMain/PostMain.tsx";
 import useGetComments from "@/modules/posts/hooks/useGetComments.ts";
 import { observer } from "mobx-react-lite";
-import PostUIStore from "@/modules/posts/store/postUI.store.ts";
-
-const Wrapper = styled.div`
-   background-color: ${({ theme }) => theme.colors.background.content};
-   border: ${({ theme }) => theme.borders.base};
-   border-radius: 8px;
-`;
+import PostUIStore from "@/modules/posts/store/post.store.ts";
+import { PostWrapper } from "@/modules/posts/components/styles/Post.styles.ts";
 
 const Post = observer((postData: PostInterface) => {
    const { reactions, views, userId, id: postId, title, body, images, videoId } = postData;
@@ -28,7 +22,7 @@ const Post = observer((postData: PostInterface) => {
    return (
       <>
          {userData && commentsData && (
-            <Wrapper>
+            <PostWrapper>
                <PostHeader
                   userId={userId}
                   src={userData.image}
@@ -51,7 +45,7 @@ const Post = observer((postData: PostInterface) => {
                   postId={postId}
                   onCommentClick={handleOpenModal}
                />
-            </Wrapper>
+            </PostWrapper>
          )}
       </>
    );

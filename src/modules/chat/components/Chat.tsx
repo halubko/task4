@@ -1,18 +1,9 @@
-import styled from "@emotion/styled";
 import ChatHeader from "@/modules/chat/components/ui/ChatHeader/ChatHeader.tsx";
 import { useGetProfile } from "@/modules/profile";
 import ChatFooter from "@/modules/chat/components/ui/ChatFooter/ChatFooter.tsx";
 import ChatMain from "@/modules/chat/components/ui/ChatMain/ChatMain.tsx";
 import { useParams } from "@tanstack/react-router";
-
-export const Wrapper = styled.div`
-   background-color: ${({ theme }) => theme.colors.background.content};
-   border: ${({ theme }) => theme.borders.base};
-   border-radius: 8px;
-   display: flex;
-   flex-direction: column;
-   height: 100%;
-`;
+import { ChatMainWrapper, ChatWrapper } from "@/modules/chat/components/styles/Chat.styles.ts";
 
 export const Chat = () => {
    const { userId } = useParams({ strict: false });
@@ -22,13 +13,13 @@ export const Chat = () => {
    return (
       <>
          {data && (
-            <div style={{ width: "100%" }}>
-               <Wrapper>
+            <ChatMainWrapper>
+               <ChatWrapper>
                   <ChatHeader userId={profileId} profileName={data.firstName} src={data.image} />
                   <ChatMain profileId={profileId} />
                   <ChatFooter />
-               </Wrapper>
-            </div>
+               </ChatWrapper>
+            </ChatMainWrapper>
          )}
       </>
    );

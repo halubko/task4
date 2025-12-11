@@ -1,20 +1,12 @@
 import { observer } from "mobx-react-lite";
 import Message from "@/modules/chat/components/ui/ChatMain/Message.tsx";
-import styled from "@emotion/styled";
 import useGetMessages from "@/modules/chat/hooks/useGetMessages.ts";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 import { authStore } from "@/modules/auth";
 import { useEffect } from "react";
 import socketStore from "@/modules/chat/store/socket.store.ts";
-import { mokMessages } from "@/modules/chat/data/mokMessages.ts";
-
-const Wrapper = styled.div`
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-end;
-   flex: 1;
-   overflow-y: auto;
-`;
+import { mockMessages } from "@/modules/chat/data/mockMessages.ts";
+import { ChatMainWrapper } from "@/modules/chat/components/styles/ui/ChatMain/ChatMain.styles.ts";
 
 const ChatMain = observer(({ profileId }: { profileId: number }) => {
    // Loading messages from local web-server
@@ -28,18 +20,22 @@ const ChatMain = observer(({ profileId }: { profileId: number }) => {
          socketStore.loadMessages(messagesFromServer);
       }
       if (isError) {
-         socketStore.loadMessages(mokMessages);
+         socketStore.loadMessages(mockMessages);
       }
    }, [messagesFromServer, isError]);
 
    if (isLoading) {
-      return <LoadingIndicator />;
+      return (
+         <ChatMainWrapper>
+            <LoadingIndicator />
+         </ChatMainWrapper>
+      );
    }
 
    return (
-      <Wrapper>
+      <ChatMainWrapper>
          {messages && messages.map((msg) => <Message message={msg} key={msg.id} userId={userId} />)}
-      </Wrapper>
+      </ChatMainWrapper>
    );
 });
 

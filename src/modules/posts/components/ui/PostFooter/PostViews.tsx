@@ -1,20 +1,12 @@
-import styled from "@emotion/styled";
 import { Eye } from "lucide-react";
-
-const Wrapper = styled.div`
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 2px;
-   padding: 4px;
-`;
+import { PostViewsWrapper } from "@/modules/posts/components/styles/ui/PostFooter/PostViews.styles.ts";
 
 const PostViews = ({ views }: { views: number }) => {
    return (
-      <Wrapper>
+      <PostViewsWrapper>
          <Eye />
          {views}
-      </Wrapper>
+      </PostViewsWrapper>
    );
 };
 

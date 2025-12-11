@@ -1,18 +1,14 @@
 import useUpdateUser from "@/modules/profile/hooks/useUpdateUser.ts";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
-import FormGroup from "@/shared/FormGroup.tsx";
-import FormError from "@/shared/FormElements/FormError.tsx";
 import FormInput from "@/shared/FormElements/FormInput.tsx";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
-import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { useGetProfile } from "@/modules/profile";
 import { authStore } from "@/modules/auth";
-import styled from "@emotion/styled";
 import ProfileEditHeader from "@/modules/profile/components/ui/ProfileEditHeader.tsx";
 import {
    ProfileEditSchema,
    type ProfileEditSchemaType,
-} from "@/modules/profile/utils/validation.ts";
+} from "@/modules/profile/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormInputWithIcon from "@/shared/FormElements/FormInputWithIcon.tsx";
 import {
@@ -24,16 +20,13 @@ import {
    MailIcon,
 } from "lucide-react";
 import { observer } from "mobx-react-lite";
-import { formatBirthDate } from "@/modules/profile/utils/userInfoConverters.ts";
+import { formatBirthDate } from "@/modules/profile/utils/userInfoConverters.utils.ts";
 import { useEffect } from "react";
-
-const Wrapper = styled.div`
-   max-width: 1067px;
-   width: 100%;
-   justify-self: center;
-   padding: 0 8px;
-   box-sizing: border-box;
-`;
+import { ProfileEditWrapper } from "@/modules/profile/components/styles/ProfileEdit.styles.ts";
+import { FormNameWrapper } from "@/shared/styles/FormElements/FormName.styles.ts";
+import { FormButton } from "@/shared/styles/FormElements/FormButton.styles.ts";
+import { FormError } from "@/shared/styles/FormElements/FormError.styles.ts";
+import { FormGroup } from "@/shared/styles/FormGroup.styles.ts";
 
 export const ProfileEdit = observer(() => {
    const userId = authStore.id;
@@ -64,49 +57,49 @@ export const ProfileEdit = observer(() => {
    }
 
    return (
-      <Wrapper>
+      <ProfileEditWrapper>
          <FormProvider {...methods}>
             <FormGroup onSubmit={methods.handleSubmit(onSubmit)}>
                <ProfileEditHeader />
-               <div style={{ width: "100%", display: "flex", gap: "10px" }}>
-                  {errors.firstName && <FormError value={errors.firstName.message} />}
-                  {errors.lastName && <FormError value={errors.lastName.message} />}
-               </div>
-               <div style={{ width: "100%", display: "flex", gap: "10px" }}>
+               <FormNameWrapper>
+                  {errors.firstName && <FormError>{errors.firstName.message}</FormError>}
+                  {errors.lastName && <FormError>{errors.lastName.message}</FormError>}
+               </FormNameWrapper>
+               <FormNameWrapper>
                   <FormInput variant="firstName" type="text" placeholder="First name" />
                   <FormInput variant="lastName" type="text" placeholder="Last name" />
-               </div>
-               {errors.email && <FormError value={errors.email.message} />}
+               </FormNameWrapper>
+               {errors.email && <FormError>{errors.email.message}</FormError>}
                <FormInputWithIcon Icon={MailIcon} variant="email" type="text" placeholder="Email" />
-               {errors.birthDate && <FormError value={errors.birthDate.message} />}
+               {errors.birthDate && <FormError>{errors.birthDate.message}</FormError>}
                <FormInputWithIcon
                   Icon={Cake}
                   variant="birthDate"
                   type="date"
                   placeholder="Birth date"
                />
-               {errors.username && <FormError value={errors.username.message} />}
+               {errors.username && <FormError>{errors.username.message}</FormError>}
                <FormInputWithIcon
                   Icon={AtSignIcon}
                   variant="username"
                   type="text"
                   placeholder="Username"
                />
-               {errors.company?.name && <FormError value={errors.company?.name.message} />}
+               {errors.company?.name && <FormError>{errors.company.message}</FormError>}
                <FormInputWithIcon
                   Icon={BriefcaseBusinessIcon}
                   variant="company.name"
                   type="text"
                   placeholder="Work"
                />
-               {errors.university && <FormError value={errors.university.message} />}
+               {errors.university && <FormError>{errors.university.message}</FormError>}
                <FormInputWithIcon
                   Icon={GraduationCapIcon}
                   variant="university"
                   type="text"
                   placeholder="University"
                />
-               {errors.image && <FormError value={errors.image.message} />}
+               {errors.image && <FormError>{errors.image.message}</FormError>}
                <FormInputWithIcon
                   Icon={ImageIcon}
                   variant="image"
@@ -120,6 +113,6 @@ export const ProfileEdit = observer(() => {
                )}
             </FormGroup>
          </FormProvider>
-      </Wrapper>
+      </ProfileEditWrapper>
    );
 });

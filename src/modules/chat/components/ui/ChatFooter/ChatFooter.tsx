@@ -1,23 +1,11 @@
-import styled from "@emotion/styled";
 import FormInput from "@/shared/FormElements/FormInput.tsx";
-import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SendHorizonal } from "lucide-react";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
 import { useWebSocket } from "@/modules/chat";
 import { Route } from "@/routes/_main/messages/$userId.ts";
 import { useEffect } from "react";
-
-const Form = styled.form`
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   background-color: ${({ theme }) => theme.colors.background.content};
-   border-radius: 8px;
-   width: 100%;
-   padding: 4px;
-   box-sizing: border-box;
-   border: ${({ theme }) => theme.borders.base};
-`;
+import { ChatFooterForm } from "@/modules/chat/components/styles/ui/ChatFooter/ChatFooter.styles.ts";
+import { InlineFormButton } from "@/shared/styles/FormElements/FormButton.styles.ts";
 
 interface FormInputInterface {
    message: string;
@@ -41,7 +29,7 @@ const ChatFooter = () => {
 
    return (
       <FormProvider {...methods}>
-         <Form onSubmit={methods.handleSubmit(onSubmit)}>
+         <ChatFooterForm onSubmit={methods.handleSubmit(onSubmit)}>
             <FormInput
                type="text"
                variant="message"
@@ -49,14 +37,11 @@ const ChatFooter = () => {
                autoComplete="off"
             />
             <div>
-               <FormButton
-                  type="submit"
-                  style={{ padding: "7px", display: "flex", alignItems: "center" }}
-               >
+               <InlineFormButton type="submit">
                   <SendHorizonal />
-               </FormButton>
+               </InlineFormButton>
             </div>
-         </Form>
+         </ChatFooterForm>
       </FormProvider>
    );
 };

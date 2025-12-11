@@ -1,30 +1,12 @@
 import type { PostCommentInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
-import styled from "@emotion/styled";
 import Likes from "@/modules/posts/components/ui/Likes.tsx";
-import { Link } from "@tanstack/react-router";
-
-const Wrapper = styled.section`
-   display: flex;
-   flex-direction: column;
-   gap: 8px;
-`;
-
-const UserNameLink = styled(Link)`
-   font-size: 1rem;
-   text-decoration: none;
-   color: ${({ theme }) => theme.colors.text.link};
-   font-weight: 600;
-   width: fit-content;
-`;
-
-const Description = styled.article`
-   font-size: 0.9rem;
-   display: -webkit-box;
-   -webkit-line-clamp: 3;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-   text-overflow: ellipsis;
-`;
+import {
+   LikesWrapper,
+   PostCommentDescription,
+   PostCommentWrapper,
+   UserNameLink,
+} from "@/modules/posts/components/styles/ui/PostComment/ProfileComment.styles.ts";
+import postStore from "@/modules/posts/store/post.store.ts";
 
 interface PostCommentProps {
    comment: PostCommentInterface;
@@ -32,13 +14,15 @@ interface PostCommentProps {
 
 const PostComment = ({ comment }: PostCommentProps) => {
    return (
-      <Wrapper>
-         <UserNameLink to={`/profile/${comment.user.id}`}>{comment.user.fullName}</UserNameLink>
-         <Description>{comment.body}</Description>
-         <div style={{ display: "flex", justifyContent: "end" }}>
+      <PostCommentWrapper>
+         <UserNameLink to={`/profile/${comment.user.id}`} onClick={() => postStore.closeAllModal()}>
+            {comment.user.fullName}
+         </UserNameLink>
+         <PostCommentDescription>{comment.body}</PostCommentDescription>
+         <LikesWrapper>
             <Likes likes={comment.likes} id={comment.id} type="comment" />
-         </div>
-      </Wrapper>
+         </LikesWrapper>
+      </PostCommentWrapper>
    );
 };
 

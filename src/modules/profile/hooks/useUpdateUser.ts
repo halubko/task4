@@ -3,15 +3,15 @@ import { updateUser } from "@/modules/profile/api/api.ts";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "react-toastify";
 import type {
-   ProfileInfoInterface,
+   ProfileInterfaces,
    ProfileUpdateInterface,
-} from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
+} from "@/modules/profile/interfaces/Profile.Interfaces.ts";
 
 const useUpdateUser = (userId: number) => {
    const navigate = useNavigate();
    const { invalidateQueries } = useQueryClient();
 
-   return useMutation<ProfileInfoInterface, Error, ProfileUpdateInterface>({
+   return useMutation<ProfileInterfaces, Error, ProfileUpdateInterface>({
       mutationKey: ["update", "user"],
       mutationFn: (formData) => updateUser(userId, formData),
       onSuccess: () => {

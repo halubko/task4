@@ -1,20 +1,6 @@
 import { Heart } from "lucide-react";
-import styled from "@emotion/styled";
 import useLike from "@/modules/posts/hooks/useLike.ts";
-
-const Button = styled.button`
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 2px;
-   background: transparent;
-   color: inherit;
-   border: none;
-   &:active {
-      transform: scale(0.9);
-      transition-duration: 0.1s;
-   }
-`;
+import { LikeButton } from "@/modules/posts/components/styles/ui/Likes.styles.ts";
 
 interface LikeProps {
    likes: number;
@@ -44,14 +30,10 @@ const Likes = ({ likes, id, type }: LikeProps) => {
    };
 
    return (
-      <Button
-         onClick={handleLike}
-         type="button"
-         style={type === "comment" ? { justifyContent: "start", width: "fit-content" } : undefined}
-      >
+      <LikeButton onClick={handleLike} type="button" typeLike={type}>
          <Heart fill={isLiked ? "red" : "transparent"} size={type === "comment" ? 18 : 24} />
          {likesCount}
-      </Button>
+      </LikeButton>
    );
 };
 

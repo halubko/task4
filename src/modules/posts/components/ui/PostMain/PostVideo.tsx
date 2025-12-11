@@ -1,10 +1,6 @@
-import styled from "@emotion/styled";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
-
-const Wrapper = styled.div`
-   position: relative;
-`;
+import { PostVideoWrapper } from "@/modules/posts/components/styles/ui/PostMain/PostVideo.styles.ts";
 
 interface PostVideoProps {
    videoId: string;
@@ -12,9 +8,9 @@ interface PostVideoProps {
 
 const PostVideo = ({ videoId }: PostVideoProps) => {
    return (
-      <Wrapper>
+      <PostVideoWrapper>
          <LiteYouTubeEmbed id={videoId} title={videoId} />
-      </Wrapper>
+      </PostVideoWrapper>
    );
 };
 

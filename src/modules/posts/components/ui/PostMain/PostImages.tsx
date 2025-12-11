@@ -1,39 +1,11 @@
-import styled from "@emotion/styled";
 import PostChangePhotoButtons from "@/modules/posts/components/ui/PostMain/PostChangePhotoButtons.tsx";
-import PostUIStore from "@/modules/posts/store/postUI.store.ts";
+import PostUIStore from "@/modules/posts/store/post.store.ts";
 import { observer } from "mobx-react-lite";
-
-const Wrapper = styled.div`
-   position: relative;
-   display: grid;
-   grid-template-areas: "stack";
-   width: 100%;
-   overflow: hidden;
-   align-items: center;
-`;
-
-const Img = styled.img<{ isVisible: boolean }>`
-   object-fit: cover;
-   width: 100%;
-   grid-area: stack;
-   opacity: ${(props) => (props.isVisible ? 1 : 0)};
-   z-index: ${(props) => (props.isVisible ? 1 : 0)};
-   pointer-events: ${(props) => (props.isVisible ? "auto" : "none")};
-`;
-
-const ImageCounter = styled.div`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 2px;
-   padding: 3px 10px;
-   position: absolute;
-   top: 1%;
-   right: 1%;
-   background-color: rgba(34, 34, 34, 0.3);
-   border-radius: 8px;
-   z-index: 2;
-`;
+import {
+   ImageCounter,
+   Img,
+   PostImagesWrapper,
+} from "@/modules/posts/components/styles/ui/PostMain/PostImages.styles.ts";
 
 interface PostImagesProps {
    images: string[];
@@ -50,7 +22,7 @@ const PostImages = observer(({ images, postId }: PostImagesProps) => {
    };
 
    return (
-      <Wrapper>
+      <PostImagesWrapper>
          {imagesCount > 1 && (
             <ImageCounter>
                <div>{currentImage + 1}</div>
@@ -68,7 +40,7 @@ const PostImages = observer(({ images, postId }: PostImagesProps) => {
                setCurrentImage={handleSetCurrentImage}
             />
          )}
-      </Wrapper>
+      </PostImagesWrapper>
    );
 });
 
