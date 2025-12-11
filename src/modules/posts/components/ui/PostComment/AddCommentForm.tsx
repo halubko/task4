@@ -5,7 +5,7 @@ import FormInput from "@/shared/FormElements/FormInput.tsx";
 import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SendHorizonal } from "lucide-react";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
-import { AddCommentSchema, type AddCommentType } from "@/modules/posts/utils/validation.ts";
+import { AddCommentSchema, type AddCommentType } from "@/modules/posts/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { useEffect } from "react";

@@ -9,7 +9,7 @@ import { theme } from "@/assets/styles/theme.ts";
 import type { ElementType, ReactElement, ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@testing-library/jest-dom/vitest";
-import postUIStore from "@/modules/posts/store/postUI.store.ts";
+import postUIStore from "@/modules/posts/store/post.store.ts";
 
 const queryClient = new QueryClient();
 

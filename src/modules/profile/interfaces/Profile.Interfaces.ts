@@ -1,4 +1,4 @@
-export interface ProfileInfoInterface {
+export interface ProfileInterfaces {
    id: number;
    email: string;
    firstName: string;

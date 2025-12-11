@@ -12,7 +12,7 @@ import ProfileEditHeader from "@/modules/profile/components/ui/ProfileEditHeader
 import {
    ProfileEditSchema,
    type ProfileEditSchemaType,
-} from "@/modules/profile/utils/validation.ts";
+} from "@/modules/profile/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormInputWithIcon from "@/shared/FormElements/FormInputWithIcon.tsx";
 import {
@@ -24,7 +24,7 @@ import {
    MailIcon,
 } from "lucide-react";
 import { observer } from "mobx-react-lite";
-import { formatBirthDate } from "@/modules/profile/utils/userInfoConverters.ts";
+import { formatBirthDate } from "@/modules/profile/utils/userInfoConverters.utils.ts";
 import { useEffect } from "react";
 
 const Wrapper = styled.div`

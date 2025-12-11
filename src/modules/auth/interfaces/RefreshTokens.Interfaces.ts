@@ -1,4 +1,4 @@
-export interface RefreshTokensInterface {
+export interface RefreshTokensInterfaces {
    accessToken: string;
    refreshToken: string;
 }

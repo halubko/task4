@@ -1,6 +1,6 @@
-import type { ChatInterface } from "@/modules/chat/interfaces/Chat.Interface.ts";
+import type { ChatInterfaces } from "@/modules/chat/interfaces/Chat.Interfaces.ts";
 
-export const mockChatsList: ChatInterface[] = [
+export const mockChatsList: ChatInterfaces[] = [
    {
       id: crypto.randomUUID(),
       recipientId: 2,

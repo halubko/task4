@@ -6,7 +6,7 @@ import { useGetProfile } from "@/modules/profile";
 import PostMain from "@/modules/posts/components/ui/PostMain/PostMain.tsx";
 import useGetComments from "@/modules/posts/hooks/useGetComments.ts";
 import { observer } from "mobx-react-lite";
-import PostUIStore from "@/modules/posts/store/postUI.store.ts";
+import PostUIStore from "@/modules/posts/store/post.store.ts";
 
 const Wrapper = styled.div`
    background-color: ${({ theme }) => theme.colors.background.content};

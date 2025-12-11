@@ -3,7 +3,7 @@ import { AuthHeader } from "@/modules/auth/components/ui/AuthHeader.tsx";
 import { FormProvider, useForm } from "react-hook-form";
 import FormGroup from "@/shared/FormGroup.tsx";
 import FormButton from "@/shared/FormElements/FormButton.tsx";
-import { SignInSchema, type SignInSchemaType } from "@/modules/auth/utils/validation.ts";
+import { SignInSchema, type SignInSchemaType } from "@/modules/auth/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormError from "@/shared/FormElements/FormError.tsx";
 import FormLink from "@/shared/FormElements/FormLink.tsx";

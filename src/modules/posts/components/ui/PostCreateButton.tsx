@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Plus } from "lucide-react";
-import PostUIStore from "@/modules/posts/store/postUI.store.ts";
+import PostUIStore from "@/modules/posts/store/post.store.ts";
 import { observer } from "mobx-react-lite";
 
 const Wrapper = styled.button`

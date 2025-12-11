@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import type { ChatInterface } from "@/modules/chat/interfaces/Chat.Interface.ts";
+import type { ChatInterfaces } from "@/modules/chat/interfaces/Chat.Interfaces.ts";
 import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
 import { useGetProfile } from "@/modules/profile";
 import { useNavigate, useParams } from "@tanstack/react-router";
@@ -33,7 +33,7 @@ const MessagePreview = styled.div`
 `;
 
 interface ChatLinkProps {
-   chatInfo: ChatInterface;
+   chatInfo: ChatInterfaces;
 }
 
 const ChatLink = ({ chatInfo }: ChatLinkProps) => {

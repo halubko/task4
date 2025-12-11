@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import type { UserInfoInterface } from "@/modules/auth/interfaces/UserInfo.Interface.ts";
-import type { RefreshTokensInterface } from "@/modules/auth/interfaces/RefreshTokens.Interface.ts";
+import type { UserInfoInterfaces } from "@/modules/auth/interfaces/UserInfo.Interfaces.ts";
+import type { RefreshTokensInterfaces } from "@/modules/auth/interfaces/RefreshTokens.Interfaces.ts";
 
 class AuthStore {
    id: number = 0;
@@ -16,7 +16,7 @@ class AuthStore {
       makeAutoObservable(this);
    }
 
-   setUser(data: UserInfoInterface) {
+   setUser(data: UserInfoInterfaces) {
       this.id = data.id;
       this.firstName = data.firstName;
       this.lastName = data.lastName;
@@ -25,7 +25,7 @@ class AuthStore {
       this.isAuth = true;
    }
 
-   setTokens({ accessToken, refreshToken }: RefreshTokensInterface) {
+   setTokens({ accessToken, refreshToken }: RefreshTokensInterfaces) {
       this.accessToken = accessToken;
       this.refreshToken = refreshToken;
       localStorage.setItem("accessToken", this.accessToken);

@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addComment } from "@/modules/posts/api/commentsAPI.ts";
 import { toast } from "react-toastify";
 import type { UseFormReturn } from "react-hook-form";
-import type { AddCommentType } from "@/modules/posts/utils/validation.ts";
+import type { AddCommentType } from "@/modules/posts/utils/validation.utils.ts";
 
 interface useSetCommentProps {
    postId: number;

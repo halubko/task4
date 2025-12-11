@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import PostUIStore from "@/modules/posts/store/postUI.store.ts";
+import PostUIStore from "@/modules/posts/store/post.store.ts";
 
 const Wrapper = styled.section`
    display: flex;

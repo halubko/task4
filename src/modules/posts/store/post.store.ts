@@ -1,12 +1,12 @@
 import { makeAutoObservable } from "mobx";
 import type { PostInterface } from "@/modules/posts/interfaces/Post.Interfaces.ts";
 import type { PostCommentsResponseInterface } from "@/modules/posts/interfaces/Comment.Interfaces.ts";
-import type { ProfileInfoInterface } from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
+import type { ProfileInterfaces } from "@/modules/profile/interfaces/Profile.Interfaces.ts";
 
-class PostUIStore {
+class PostStore {
    isCreatePostOpen: boolean = false;
    selectedPost: PostInterface | null = null;
-   selectedUser: ProfileInfoInterface | null = null;
+   selectedUser: ProfileInterfaces | null = null;
    selectedComments: PostCommentsResponseInterface | null = null;
    postImageState: Record<number, number> = {};
 
@@ -20,7 +20,7 @@ class PostUIStore {
 
    openPostModal(
       post: PostInterface,
-      userData: ProfileInfoInterface,
+      userData: ProfileInterfaces,
       comments: PostCommentsResponseInterface
    ) {
       this.selectedPost = post;
@@ -38,4 +38,4 @@ class PostUIStore {
    }
 }
 
-export default new PostUIStore();
+export default new PostStore();

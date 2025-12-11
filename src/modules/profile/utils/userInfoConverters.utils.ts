@@ -1,4 +1,4 @@
-import type { AddressInterface } from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
+import type { AddressInterface } from "@/modules/profile/interfaces/Profile.Interfaces.ts";
 
 export const getLocation = ({ city, country }: AddressInterface) => {
    if (country === "United States") {

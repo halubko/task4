@@ -3,7 +3,7 @@ import PostHeader from "@/modules/posts/components/ui/PostHeader/PostHeader.tsx"
 import PostMain from "@/modules/posts/components/ui/PostMain/PostMain.tsx";
 import PostFooter from "@/modules/posts/components/ui/PostFooter/PostFooter.tsx";
 import PostCommentsList from "@/modules/posts/components/ui/PostComment/PostCommentsList.tsx";
-import PostUIStore from "@/modules/posts/store/postUI.store.ts";
+import PostUIStore from "@/modules/posts/store/post.store.ts";
 import { observer } from "mobx-react-lite";
 import styled from "@emotion/styled";
 

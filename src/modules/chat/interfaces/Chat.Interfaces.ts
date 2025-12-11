@@ -1,4 +1,4 @@
-export interface ChatInterface {
+export interface ChatInterfaces {
    id: string;
    recipientId: number;
    last_sender: string;

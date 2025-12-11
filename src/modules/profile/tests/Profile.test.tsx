@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
    formatBirthDate,
    getBirthDateWithAge,
-} from "@/modules/profile/utils/userInfoConverters.ts";
+} from "@/modules/profile/utils/userInfoConverters.utils.ts";
 import { profileStore } from "@/modules/profile";
 import { render } from "@testing-library/react";
 import ProfileAvatar from "@/modules/profile/components/ui/ProfileAvatar.tsx";

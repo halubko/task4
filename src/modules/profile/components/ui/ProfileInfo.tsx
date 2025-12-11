@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import type { ProfileInfoInterface } from "@/modules/profile/interfaces/ProfileInfo.Interface.ts";
+import type { ProfileInterfaces } from "@/modules/profile/interfaces/Profile.Interfaces.ts";
 import ProfileInfoElement from "@/modules/profile/components/ui/ProfileInfoElement.tsx";
 import {
    AtSignIcon,
@@ -9,7 +9,10 @@ import {
    HouseIcon,
    MailIcon,
 } from "lucide-react";
-import { getBirthDateWithAge, getLocation } from "@/modules/profile/utils/userInfoConverters.ts";
+import {
+   getBirthDateWithAge,
+   getLocation,
+} from "@/modules/profile/utils/userInfoConverters.utils.ts";
 import ProfileFullName from "@/modules/profile/components/ui/ProfileFullName.tsx";
 
 const MainWrapper = styled.div`
@@ -40,7 +43,7 @@ const ProfileInfoElementWrapper = styled.div`
 `;
 
 interface ProfileInfoProps {
-   data: ProfileInfoInterface;
+   data: ProfileInterfaces;
 }
 
 const ProfileInfo = ({ data }: ProfileInfoProps) => {
