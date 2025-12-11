@@ -1,13 +1,8 @@
-import styled from "@emotion/styled";
 import PostDescription from "@/modules/posts/components/ui/PostMain/PostDescription.tsx";
 import PostImages from "@/modules/posts/components/ui/PostMain/PostImages.tsx";
 import PostVideo from "@/modules/posts/components/ui/PostMain/PostVideo.tsx";
 import { observer } from "mobx-react-lite";
-
-const Wrapper = styled.div`
-   display: flex;
-   flex-direction: column;
-`;
+import { PostMainWrapper } from "@/modules/posts/components/styles/ui/PostMain/PostMain.styles.ts";
 
 interface PostMainProps {
    title: string;
@@ -21,13 +16,13 @@ interface PostMainProps {
 const PostMain = observer(
    ({ title, description, images, videoId, onMainClick, postId }: PostMainProps) => {
       return (
-         <Wrapper>
+         <PostMainWrapper>
             {videoId && <PostVideo videoId={videoId} />}
             {images && <PostImages images={images} postId={postId} />}
             <div onClick={onMainClick}>
                <PostDescription title={title} description={description} />
             </div>
-         </Wrapper>
+         </PostMainWrapper>
       );
    }
 );

@@ -1,22 +1,14 @@
-import styled from "@emotion/styled";
 import { mockChatsList } from "@/modules/chat/data/mockChatsList.ts";
 import ChatLink from "@/modules/chat/components/ui/ChatLink.tsx";
-
-const Wrapper = styled.div`
-   display: flex;
-   align-items: center;
-   padding: 0 8px;
-   gap: 16px;
-   flex-direction: column;
-`;
+import { ChatListWrapper } from "@/modules/chat/components/styles/ui/ChatList.styles.ts";
 
 const ChatsList = () => {
    return (
-      <Wrapper>
+      <ChatListWrapper>
          {mockChatsList.map((chat) => (
             <ChatLink chatInfo={chat} key={chat.id} />
          ))}
-      </Wrapper>
+      </ChatListWrapper>
    );
 };
 

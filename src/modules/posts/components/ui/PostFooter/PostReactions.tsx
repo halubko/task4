@@ -1,12 +1,6 @@
-import styled from "@emotion/styled";
 import Likes from "@/modules/posts/components/ui/Likes.tsx";
 import PostCommentsQuantity from "@/modules/posts/components/ui/PostFooter/PostCommentsQuantity.tsx";
-
-const Wrapper = styled.div`
-   display: flex;
-   justify-content: space-between;
-   gap: 8px;
-`;
+import { PostReactionsWrapper } from "@/modules/posts/components/styles/ui/PostFooter/PostReactions.styles.ts";
 
 interface PostReactionsProps {
    likes: number;
@@ -17,10 +11,10 @@ interface PostReactionsProps {
 
 const PostReactions = ({ likes, commentsCount, postId, onCommentClick }: PostReactionsProps) => {
    return (
-      <Wrapper>
+      <PostReactionsWrapper>
          <Likes likes={likes} id={postId} type="post" />
          <PostCommentsQuantity commentsCount={commentsCount} onCommentClick={onCommentClick} />
-      </Wrapper>
+      </PostReactionsWrapper>
    );
 };
 

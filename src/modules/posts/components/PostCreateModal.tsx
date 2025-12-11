@@ -1,7 +1,5 @@
 import ModalTemplate from "@/shared/ModalTemplate.tsx";
-import FormGroup from "@/shared/FormGroup.tsx";
 import FormInput from "@/shared/FormElements/FormInput.tsx";
-import FormButton from "@/shared/FormElements/FormButton.tsx";
 import PostUIStore from "@/modules/posts/store/post.store.ts";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
 import { observer } from "mobx-react-lite";
@@ -14,9 +12,12 @@ import {
    type CreatePostSchemaType,
 } from "@/modules/posts/utils/validation.utils.ts";
 import { CreatePostFormHeader } from "@/modules/posts/components/ui/CreatePostFormHeader.tsx";
-import FormError from "@/shared/FormElements/FormError.tsx";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
 import { useEffect } from "react";
+import { HorizLineStyles } from "@/shared/styles/HorizLine.styles.ts";
+import { FormButton } from "@/shared/styles/FormElements/FormButton.styles.ts";
+import { FormError } from "@/shared/styles/FormElements/FormError.styles.ts";
+import { FormGroup } from "@/shared/styles/FormGroup.styles.ts";
 
 export const PostCreateModal = observer(() => {
    const methods = useForm<CreatePostSchemaType & { required?: string }>({
@@ -51,8 +52,8 @@ export const PostCreateModal = observer(() => {
          <FormProvider {...methods}>
             <FormGroup onSubmit={methods.handleSubmit(onSubmit)}>
                <CreatePostFormHeader />
-               <hr style={{ width: "100%" }} />
-               {errors.required && <FormError value={errors.required.message} />}
+               <HorizLineStyles />
+               {errors.required && <FormError>{errors.required.message}</FormError>}
                <FormInput type="text" placeholder="Title" variant="title" />
                <FormTextarea />
                <FormInput type="text" placeholder="Youtube video link" variant="video" />

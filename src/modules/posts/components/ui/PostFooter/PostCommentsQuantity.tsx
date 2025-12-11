@@ -1,13 +1,6 @@
 import { MessageSquare } from "lucide-react";
-import styled from "@emotion/styled";
 import { observer } from "mobx-react-lite";
-
-const Wrapper = styled.div`
-   display: flex;
-   gap: 2px;
-   cursor: pointer;
-   align-items: center;
-`;
+import { PostCommentsQuantityWrapper } from "@/modules/posts/components/styles/ui/PostFooter/PostCommentsQuantity.styles.ts";
 
 interface PostCommentsQuantityProps {
    commentsCount: number;
@@ -17,10 +10,10 @@ interface PostCommentsQuantityProps {
 const PostCommentsQuantity = observer(
    ({ commentsCount, onCommentClick }: PostCommentsQuantityProps) => {
       return (
-         <Wrapper onClick={onCommentClick}>
+         <PostCommentsQuantityWrapper onClick={onCommentClick}>
             <MessageSquare />
             {commentsCount}
-         </Wrapper>
+         </PostCommentsQuantityWrapper>
       );
    }
 );

@@ -1,23 +1,17 @@
 import { TvMinimalPlay } from "lucide-react";
 import { useLocation } from "@tanstack/react-router";
-import styled from "@emotion/styled";
-
-const Wrapper = styled.div`
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 8px;
-`;
+import { AuthHeaderWrapper } from "@/modules/auth/components/styles/ui/AuthHeader.styles.ts";
+import { FormTitle } from "@/shared/styles/FormElements/FormTitle.styles.ts";
 
 export const AuthHeader = () => {
    const location = useLocation();
 
    return (
-      <Wrapper>
+      <AuthHeaderWrapper>
          <TvMinimalPlay size={42} />
-         <h1 style={{ fontSize: "24px" }}>
+         <FormTitle>
             {location.pathname === "/signin" ? "Sign in" : "Sign up"} to ErrorTube
-         </h1>
-      </Wrapper>
+         </FormTitle>
+      </AuthHeaderWrapper>
    );
 };

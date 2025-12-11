@@ -1,14 +1,15 @@
 import FormInput from "@/shared/FormElements/FormInput.tsx";
 import { AuthHeader } from "@/modules/auth/components/ui/AuthHeader.tsx";
 import { FormProvider, useForm } from "react-hook-form";
-import FormGroup from "@/shared/FormGroup.tsx";
-import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SignInSchema, type SignInSchemaType } from "@/modules/auth/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormError from "@/shared/FormElements/FormError.tsx";
-import FormLink from "@/shared/FormElements/FormLink.tsx";
 import useSignIn from "@/modules/auth/hooks/useSignIn.ts";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
+import { HorizLineStyles } from "@/shared/styles/HorizLine.styles.ts";
+import { FormButton } from "@/shared/styles/FormElements/FormButton.styles.ts";
+import { FormError } from "@/shared/styles/FormElements/FormError.styles.ts";
+import { FormLink } from "@/shared/styles/FormElements/FormLink.styles.ts";
+import { FormGroup } from "@/shared/styles/FormGroup.styles.ts";
 
 export const SignInForm = () => {
    const { mutate, isPending } = useSignIn();
@@ -30,13 +31,13 @@ export const SignInForm = () => {
       <FormProvider {...methods}>
          <FormGroup onSubmit={methods.handleSubmit(onSubmit)}>
             <AuthHeader />
-            <hr style={{ width: "100%" }} />
-            {errors.email && <FormError value={errors.email.message} />}
+            <HorizLineStyles />
+            {errors.email && <FormError>{errors.email.message}</FormError>}
             <FormInput variant="email" type="text" placeholder="Email" />
-            {errors.password && <FormError value={errors.password.message} />}
+            {errors.password && <FormError>{errors.password.message}</FormError>}
             <FormInput variant="password" type="password" placeholder="Password" />
             {isPending ? <LoadingIndicator /> : <FormButton type="submit">Sign In</FormButton>}
-            <FormLink text="Sign Up" path="/signup" />
+            <FormLink to="/signup">Sign Up</FormLink>
          </FormGroup>
       </FormProvider>
    );

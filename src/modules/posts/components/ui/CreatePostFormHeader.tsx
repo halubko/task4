@@ -1,18 +1,12 @@
 import { BadgePlus } from "lucide-react";
-import styled from "@emotion/styled";
-
-const Wrapper = styled.div`
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 8px;
-`;
+import { CreatePostFormHeaderWrapper } from "@/modules/posts/components/styles/ui/CreatePostFormHeader.styles.ts";
+import { FormTitle } from "@/shared/styles/FormElements/FormTitle.styles.ts";
 
 export const CreatePostFormHeader = () => {
    return (
-      <Wrapper>
+      <CreatePostFormHeaderWrapper>
          <BadgePlus size={42} />
-         <h1 style={{ fontSize: "24px" }}>Create Post</h1>
-      </Wrapper>
+         <FormTitle>Create Post</FormTitle>
+      </CreatePostFormHeaderWrapper>
    );
 };

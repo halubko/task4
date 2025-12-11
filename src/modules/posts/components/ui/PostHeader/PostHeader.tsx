@@ -1,11 +1,5 @@
-import styled from "@emotion/styled";
 import ProfileAvatarLink from "@/shared/ProfileAvatarLink.tsx";
-
-const Wrapper = styled.div`
-   display: flex;
-   justify-content: space-between;
-   padding: 8px;
-`;
+import { PostHeaderWrapper } from "@/modules/posts/components/styles/ui/PostHeader/PostHeader.styles.ts";
 
 interface PostHeaderProps {
    userId: number;
@@ -15,9 +9,9 @@ interface PostHeaderProps {
 
 const PostHeader = ({ userId, src, profileName }: PostHeaderProps) => {
    return (
-      <Wrapper>
+      <PostHeaderWrapper>
          <ProfileAvatarLink userId={userId} src={src} profileName={profileName} />
-      </Wrapper>
+      </PostHeaderWrapper>
    );
 };
 

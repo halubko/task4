@@ -1,50 +1,26 @@
-import styled from "@emotion/styled";
 import { ChevronLeft, UserPen } from "lucide-react";
-import ProfileAvatar from "@/modules/profile/components/ui/ProfileAvatar.tsx";
 import { authStore } from "@/modules/auth";
 import { observer } from "mobx-react-lite";
-import { Link, useRouter } from "@tanstack/react-router";
-
-const Wrapper = styled.div`
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 8px;
-   position: relative;
-   width: 100%;
-`;
-
-const CloseModalButton = styled(Link)`
-   position: absolute;
-   top: 0;
-   left: 0;
-   background-color: ${({ theme }) => theme.colors.background.secondary_button};
-   color: ${({ theme }) => theme.colors.text.link};
-   border: ${({ theme }) => theme.borders.base};
-   border-radius: 50%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding: 5px;
-   cursor: pointer;
-   &:hover {
-      background-color: ${({ theme }) => theme.colors.background.secondary_button_hover};
-      border: ${({ theme }) => theme.borders.focus};
-   }
-`;
+import { useRouter } from "@tanstack/react-router";
+import {
+   CloseModalButton,
+   ProfileEditHeaderWrapper,
+} from "@/modules/profile/components/styles/ui/ProfileEditHeader.styles.ts";
+import { FormTitle } from "@/shared/styles/FormElements/FormTitle.styles.ts";
+import { ProfileAvatar } from "@/modules/profile/components/styles/ui/ProfileAvatar.styles.ts";
 
 const ProfileEditHeader = observer(() => {
    const avatar = authStore.profilePictureUrl;
    const { history } = useRouter();
 
    return (
-      <Wrapper>
+      <ProfileEditHeaderWrapper>
          <CloseModalButton onClick={() => history.back()}>
             <ChevronLeft />
          </CloseModalButton>
-         <h1 style={{ fontSize: "24px" }}>Edit Profile</h1>
+         <FormTitle>Edit Profile</FormTitle>
          {avatar ? <ProfileAvatar src={avatar} /> : <UserPen size={42} />}
-      </Wrapper>
+      </ProfileEditHeaderWrapper>
    );
 });
 

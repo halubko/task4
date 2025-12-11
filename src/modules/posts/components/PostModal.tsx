@@ -5,13 +5,7 @@ import PostFooter from "@/modules/posts/components/ui/PostFooter/PostFooter.tsx"
 import PostCommentsList from "@/modules/posts/components/ui/PostComment/PostCommentsList.tsx";
 import PostUIStore from "@/modules/posts/store/post.store.ts";
 import { observer } from "mobx-react-lite";
-import styled from "@emotion/styled";
-
-const Wrapper = styled.div`
-   background-color: ${({ theme }) => theme.colors.background.content};
-   border: ${({ theme }) => theme.borders.base};
-   border-radius: 8px;
-`;
+import { Wrapper } from "@/modules/posts/components/styles/PostModal.styles.ts";
 
 const PostModal = observer(() => {
    const post = PostUIStore.selectedPost;

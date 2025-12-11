@@ -1,15 +1,17 @@
 import FormInput from "@/shared/FormElements/FormInput.tsx";
 import { AuthHeader } from "@/modules/auth/components/ui/AuthHeader.tsx";
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
-import FormGroup from "@/shared/FormGroup.tsx";
-import FormButton from "@/shared/FormElements/FormButton.tsx";
 import { SignUpSchema, type SignUpSchemaType } from "@/modules/auth/utils/validation.utils.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormError from "@/shared/FormElements/FormError.tsx";
-import FormLink from "@/shared/FormElements/FormLink.tsx";
 import useSignUp from "@/modules/auth/hooks/useSignUp.ts";
 import type { SignUpFormValues } from "@/modules/auth/interfaces/UserInfo.Interfaces.ts";
 import LoadingIndicator from "@/shared/LoadingIndicator.tsx";
+import { HorizLineStyles } from "@/shared/styles/HorizLine.styles.ts";
+import { FormNameWrapper } from "@/shared/styles/FormElements/FormName.styles.ts";
+import { FormButton } from "@/shared/styles/FormElements/FormButton.styles.ts";
+import { FormError } from "@/shared/styles/FormElements/FormError.styles.ts";
+import { FormLink } from "@/shared/styles/FormElements/FormLink.styles.ts";
+import { FormGroup } from "@/shared/styles/FormGroup.styles.ts";
 
 export const SignUpForm = () => {
    const { mutate, isPending } = useSignUp();
@@ -31,23 +33,23 @@ export const SignUpForm = () => {
       <FormProvider {...methods}>
          <FormGroup onSubmit={methods.handleSubmit(onSubmit)}>
             <AuthHeader />
-            <hr style={{ width: "100%" }} />
-            <div style={{ width: "100%", display: "flex", gap: "10px" }}>
-               {errors.firstName && <FormError value={errors.firstName.message} />}
-               {errors.lastName && <FormError value={errors.lastName.message} />}
-            </div>
-            <div style={{ width: "100%", display: "flex", gap: "10px" }}>
+            <HorizLineStyles />
+            <FormNameWrapper>
+               {errors.firstName && <FormError>{errors.firstName.message}</FormError>}
+               {errors.lastName && <FormError>{errors.lastName.message}</FormError>}
+            </FormNameWrapper>
+            <FormNameWrapper>
                <FormInput variant="firstName" type="text" placeholder="First name" />
                <FormInput variant="lastName" type="text" placeholder="Last name" />
-            </div>
-            {errors.email && <FormError value={errors.email.message} />}
+            </FormNameWrapper>
+            {errors.email && <FormError>{errors.email.message}</FormError>}
             <FormInput variant="email" type="text" placeholder="Email" />
-            {errors.password && <FormError value={errors.password.message} />}
+            {errors.password && <FormError>{errors.password.message}</FormError>}
             <FormInput variant="password" type="password" placeholder="Password" />
-            {errors.confirmPassword && <FormError value={errors.confirmPassword.message} />}
+            {errors.confirmPassword && <FormError>{errors.confirmPassword.message}</FormError>}
             <FormInput variant="confirmPassword" type="password" placeholder="Confirm password" />
             {isPending ? <LoadingIndicator /> : <FormButton type="submit">Sign Up</FormButton>}
-            <FormLink text="Sign Up" path="/signin" />
+            <FormLink to="/signin">Sign Up</FormLink>
          </FormGroup>
       </FormProvider>
    );

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
 
-const Button = styled.button`
+export const FormButton = styled.button`
    width: 100%;
    text-align: center;
    border: ${({ theme }) => theme.borders.base};
@@ -17,16 +16,8 @@ const Button = styled.button`
    }
 `;
 
-interface FormButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-   variant?: "primary" | "secondary";
-}
-
-const FormButton = ({ children, type = "button", ...props }: PropsWithChildren<FormButton>) => {
-   return (
-      <Button type={type} {...props}>
-         {children}
-      </Button>
-   );
-};
-
-export default FormButton;
+export const InlineFormButton = styled(FormButton)`
+   padding: 7px;
+   display: flex;
+   align-items: center;
+`;

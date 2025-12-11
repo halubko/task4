@@ -1,13 +1,6 @@
-import styled from "@emotion/styled";
 import type { LucideIcon } from "lucide-react";
-
-const Wrapper = styled.div`
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   padding: 8px;
-   border-bottom: ${({ theme }) => theme.borders.base};
-`;
+import { ProfileInfoElementWrapper } from "@/modules/profile/components/styles/ui/ProfileInfoElement.styles.ts";
+import { IconWrapper } from "@/shared/styles/IconWrapper.styles.ts";
 
 interface ProfileInfoElementProps {
    Icon: LucideIcon;
@@ -16,12 +9,12 @@ interface ProfileInfoElementProps {
 
 const ProfileInfoElement = ({ Icon, body }: ProfileInfoElementProps) => {
    return (
-      <Wrapper>
-         <div style={{ display: "flex", alignItems: "center" }}>
+      <ProfileInfoElementWrapper>
+         <IconWrapper>
             <Icon />:
-         </div>
+         </IconWrapper>
          {body}
-      </Wrapper>
+      </ProfileInfoElementWrapper>
    );
 };
 

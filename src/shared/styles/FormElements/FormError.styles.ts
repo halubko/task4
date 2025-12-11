@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const Message = styled.h2`
+export const FormError = styled.h2`
    border: ${({ theme }) => theme.borders.base};
    border-radius: 8px;
    box-sizing: border-box;
@@ -10,13 +10,3 @@ const Message = styled.h2`
    background-color: ${({ theme }) => theme.colors.background.error};
    color: ${({ theme }) => theme.colors.text.error};
 `;
-
-interface FormErrorProps {
-   value: string | undefined;
-}
-
-const FormError = ({ value }: FormErrorProps) => {
-   return <Message>{value}</Message>;
-};
-
-export default FormError;

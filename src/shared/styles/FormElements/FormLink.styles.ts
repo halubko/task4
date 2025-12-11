@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "@tanstack/react-router";
 
-const LinkComponent = styled(Link)`
+export const FormLink = styled(Link)`
    width: 100%;
    text-align: center;
    border: ${({ theme }) => theme.borders.base};
@@ -17,14 +17,3 @@ const LinkComponent = styled(Link)`
       transition: background-color 0.2s ease-in-out;
    }
 `;
-
-interface FormLinkProps {
-   text: string;
-   path: "/signin" | "/signup";
-}
-
-const FormLink = ({ text, path }: FormLinkProps) => {
-   return <LinkComponent to={path}>{text}</LinkComponent>;
-};
-
-export default FormLink;
