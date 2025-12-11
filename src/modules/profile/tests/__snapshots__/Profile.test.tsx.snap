@@ -3,7 +3,7 @@
 exports[`Profile snapshot tests > ProfileAvatar snapshot 1`] = `
 <DocumentFragment>
   <img
-    class="css-e9a39f-Img e3nk9l80"
+    class="css-k8wav9-ProfileAvatar es3375a0"
     src="test_img.jpg"
   />
 </DocumentFragment>

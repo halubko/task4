@@ -2,6 +2,7 @@ import type { MessageInterface } from "@/modules/chat/interfaces/Socket.Interfac
 
 export const mockMessages: MessageInterface[] = [
    {
+      type: "message:receive",
       id: crypto.randomUUID(),
       senderId: 2,
       senderName: "Michael Williams",
@@ -9,6 +10,7 @@ export const mockMessages: MessageInterface[] = [
       createdAt: "2025-11-04T00:00:00.000Z",
    },
    {
+      type: "message:receive",
       id: crypto.randomUUID(),
       senderId: 2,
       senderName: "Michael Williams",
@@ -16,6 +18,7 @@ export const mockMessages: MessageInterface[] = [
       createdAt: "2025-11-04T00:01:00.000Z",
    },
    {
+      type: "message:receive",
       id: crypto.randomUUID(),
       senderId: 1,
       senderName: "Emily Johnson",

@@ -5,7 +5,7 @@ import {
 } from "@/modules/profile/utils/userInfoConverters.utils.ts";
 import { profileStore } from "@/modules/profile";
 import { render } from "@testing-library/react";
-import ProfileAvatar from "@/modules/profile/components/ui/ProfileAvatar.tsx";
+import { ProfileAvatar } from "@/modules/profile/components/styles/ui/ProfileAvatar.styles.ts";
 
 describe("Profile format birthday tests", () => {
    it("should format birth date to YYYY-MM-DD", () => {

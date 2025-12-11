@@ -3,10 +3,10 @@
 exports[`SignInForm snapshot tests > should match the snapshot 1`] = `
 <DocumentFragment>
   <form
-    class="css-c9j9v9-Form ehq45km0"
+    class="css-yy6bga-FormGroup ehsd8nj0"
   >
     <div
-      class="css-xbj8qf-Wrapper epdj22p0"
+      class="css-1jddbb8-AuthHeaderWrapper e9u5y0k0"
     >
       <svg
         aria-hidden="true"
@@ -36,28 +36,28 @@ exports[`SignInForm snapshot tests > should match the snapshot 1`] = `
         />
       </svg>
       <h1
-        style="font-size: 24px;"
+        class="css-qp5el5-FormTitle e8ejt590"
       >
         Sign up to ErrorTube
       </h1>
     </div>
     <hr
-      style="width: 100%;"
+      class="css-vz4ju1-HorizLineStyles e5bei4q0"
     />
     <input
-      class="css-15od59z-Input e1wvcajd0"
+      class="css-e6t09f-FormInputStyles e6mwxlc0"
       name="email"
       placeholder="Email"
       type="text"
     />
     <input
-      class="css-15od59z-Input e1wvcajd0"
+      class="css-e6t09f-FormInputStyles e6mwxlc0"
       name="password"
       placeholder="Password"
       type="password"
     />
     <button
-      class="css-14tllpd-Button e18wk6zk0"
+      class="css-3kh0iv-FormButton ey3ubsf1"
       type="submit"
     >
       Sign In
