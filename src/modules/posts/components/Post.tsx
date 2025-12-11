@@ -20,34 +20,30 @@ const Post = observer((postData: PostInterface) => {
    };
 
    return (
-      <>
-         {userData && commentsData && (
-            <PostWrapper>
-               <PostHeader
-                  userId={userId}
-                  src={userData.image}
-                  profileName={userData.firstName + " " + userData.lastName}
-               />
-               <hr />
-               <PostMain
-                  title={title}
-                  description={body}
-                  images={images}
-                  videoId={videoId}
-                  postId={postId}
-                  onMainClick={handleOpenModal}
-               />
-               <hr />
-               <PostFooter
-                  reactions={reactions}
-                  views={views}
-                  commentsCount={commentsData.total}
-                  postId={postId}
-                  onCommentClick={handleOpenModal}
-               />
-            </PostWrapper>
-         )}
-      </>
+      <PostWrapper>
+         <PostHeader
+            userId={userId}
+            src={userData?.image}
+            profileName={userData?.firstName + " " + userData?.lastName}
+         />
+         <hr />
+         <PostMain
+            title={title}
+            description={body}
+            images={images}
+            videoId={videoId}
+            postId={postId}
+            onMainClick={handleOpenModal}
+         />
+         <hr />
+         <PostFooter
+            reactions={reactions}
+            views={views}
+            commentsCount={commentsData?.total}
+            postId={postId}
+            onCommentClick={handleOpenModal}
+         />
+      </PostWrapper>
    );
 });
 

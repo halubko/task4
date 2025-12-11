@@ -7,7 +7,7 @@ interface PostFooterProps {
       likes: number;
    };
    views: number;
-   commentsCount: number;
+   commentsCount?: number;
    postId: number;
    onCommentClick?: () => void;
 }

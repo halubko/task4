@@ -4,7 +4,7 @@ import { PostReactionsWrapper } from "@/modules/posts/components/styles/ui/PostF
 
 interface PostReactionsProps {
    likes: number;
-   commentsCount: number;
+   commentsCount?: number;
    postId: number;
    onCommentClick?: () => void;
 }

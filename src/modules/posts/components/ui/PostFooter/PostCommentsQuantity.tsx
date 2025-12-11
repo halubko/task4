@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { PostCommentsQuantityWrapper } from "@/modules/posts/components/styles/ui/PostFooter/PostCommentsQuantity.styles.ts";
 
 interface PostCommentsQuantityProps {
-   commentsCount: number;
+   commentsCount?: number;
    onCommentClick?: () => void;
 }
 
