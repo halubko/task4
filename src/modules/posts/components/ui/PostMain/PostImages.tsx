@@ -31,7 +31,7 @@ const PostImages = observer(({ images, postId }: PostImagesProps) => {
             </ImageCounter>
          )}
          {images.map((src, index) => (
-            <Img key={src} src={src} isVisible={index === currentImage} />
+            <Img key={src} src={src} isVisible={index === currentImage} alt="Post Photo" />
          ))}
          {imagesCount > 1 && (
             <PostChangePhotoButtons

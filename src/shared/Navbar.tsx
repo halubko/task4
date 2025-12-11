@@ -11,10 +11,10 @@ const Navbar = observer(() => {
    return (
       <Nav>
          <NavLink to="/posts">
-            <House />
+            <House aria-label="Posts" />
          </NavLink>
          <NavLink to="/messages">
-            <MessageCircle />
+            <MessageCircle aria-label="Messages" />
          </NavLink>
          {isAuth ? (
             <ProfileAvatarLink
@@ -24,7 +24,7 @@ const Navbar = observer(() => {
             />
          ) : (
             <Link to="/signin">
-               <LogIn />
+               <LogIn aria-label="Sign in" />
             </Link>
          )}
       </Nav>

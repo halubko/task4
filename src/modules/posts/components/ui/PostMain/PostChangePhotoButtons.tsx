@@ -29,10 +29,10 @@ const PostChangePhotoButtons = ({
 
    return (
       <PostChangePhotoButtonsWrapper>
-         <PostChangePhotoButton type="button" onClick={handleBack}>
+         <PostChangePhotoButton type="button" onClick={handleBack} aria-label="Previos image">
             <ChevronLeft />
          </PostChangePhotoButton>
-         <PostChangePhotoButton type="button" onClick={handleNext}>
+         <PostChangePhotoButton type="button" onClick={handleNext} aria-label="Next image">
             <ChevronRight />
          </PostChangePhotoButton>
       </PostChangePhotoButtonsWrapper>

@@ -14,11 +14,11 @@ interface PostDescriptionProps {
 const PostDescription = ({ title, description }: PostDescriptionProps) => {
    return (
       <PostDescriptionWrapper>
-         <PostDescriptionTitle>{title}</PostDescriptionTitle>
+         <PostDescriptionTitle aria-label="Post title">{title}</PostDescriptionTitle>
          {PostUIStore.selectedPost ? (
-            <DescriptionFull>{description}</DescriptionFull>
+            <DescriptionFull aria-label="Post full description">{description}</DescriptionFull>
          ) : (
-            <DescriptionShort>{description}</DescriptionShort>
+            <DescriptionShort aria-label="Post short description">{description}</DescriptionShort>
          )}
       </PostDescriptionWrapper>
    );
