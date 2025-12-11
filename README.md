@@ -33,7 +33,7 @@ Created social network app with using TS + Tanstack.
 ```
 2) Install dependencies:
 ```bash
-  nmp install
+  npm install
 ```
 
 
