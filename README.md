@@ -20,7 +20,7 @@ Created social network app with using TS + Tanstack.
 - Typescript (no any)
 - Tanstack Query/Router (File-Based Routing)
 - MobX
-- Emotion/styled (styled components)
+- Emotion/styled (styled-components)
 - React-hook-form + zod
 - React-intersection-observer
 - Toastify
