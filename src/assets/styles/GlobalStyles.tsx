@@ -12,6 +12,7 @@ const GlobalStyles = () => (
             font-family: "VKSans";
             font-style: normal;
             font-weight: 400;
+            font-display: swap;
             src:
                local(""),
                url(${RegularFont}) format("truetype");
@@ -21,6 +22,7 @@ const GlobalStyles = () => (
             font-family: "VKSans";
             font-style: normal;
             font-weight: 500;
+            font-display: swap;
             src:
                local(""),
                url(${MediumFont}) format("truetype");
@@ -30,6 +32,7 @@ const GlobalStyles = () => (
             font-family: "VKSans";
             font-style: normal;
             font-weight: 600;
+            font-display: swap;
             src:
                local(""),
                url(${DemiBoldFont}) format("truetype");
@@ -39,6 +42,7 @@ const GlobalStyles = () => (
             font-family: "VKSans";
             font-style: normal;
             font-weight: 700;
+            font-display: swap;
             src:
                local(""),
                url(${BoldFont}) format("truetype");
