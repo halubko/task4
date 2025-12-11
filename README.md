@@ -59,4 +59,4 @@ Build script includes creating .env, generating routerTree.gen.ts and building
 ```
 
 ## Lighthouse deploy test screenshot:
-![Снимок экрана 2025-12-12 в 02.13.16.png](../../../../../var/folders/d1/yf6m7vwd1zxcxgs6j0z099l40000gn/T/TemporaryItems/NSIRD_screencaptureui_UK0Chm/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-12-12%20%D0%B2%2002.13.16.png)
+<img width="374" height="121" alt="Снимок экрана 2025-12-12 в 02 19 30" src="https://github.com/user-attachments/assets/acdead09-9275-47ae-9053-4d4bf5d50497" />
