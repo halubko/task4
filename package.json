@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsr generate & tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky install",
@@ -37,6 +37,7 @@
     "@tanstack/eslint-plugin-router": "^1.139.0",
     "@tanstack/react-query-devtools": "^5.90.2",
     "@tanstack/react-router-devtools": "^1.136.5",
+    "@tanstack/router-cli": "^1.141.1",
     "@tanstack/router-plugin": "^1.136.5",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
