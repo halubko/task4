@@ -17,7 +17,12 @@ const ChatHeader = ({ userId, src, profileName }: PostHeaderProps) => {
          <ReturnButton to="/messages">
             <ChevronLeft />
          </ReturnButton>
-         <ProfileAvatarLink userId={userId} src={src} profileName={profileName} />
+         <ProfileAvatarLink
+            userId={userId}
+            src={src}
+            profileName={profileName}
+            alt="Profile Avatar"
+         />
 
          {/* I don't have backend that allow to set online status */}
          {/* <OnlineIndicator isOnline={true} /> */}

@@ -28,6 +28,7 @@ const ChatLink = ({ chatInfo }: ChatLinkProps) => {
                userId={recipientId}
                profileName={data?.firstName}
                src={data?.image}
+               alt="Profile Avatar"
             />
          </ElementWrapper>
          <MessagePreview>

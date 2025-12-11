@@ -17,7 +17,11 @@ const Navbar = observer(() => {
             <MessageCircle />
          </NavLink>
          {isAuth ? (
-            <ProfileAvatarLink src={authStore.profilePictureUrl} userId={authStore.id} />
+            <ProfileAvatarLink
+               src={authStore.profilePictureUrl}
+               userId={authStore.id}
+               alt="My Profile"
+            />
          ) : (
             <Link to="/signin">
                <LogIn />

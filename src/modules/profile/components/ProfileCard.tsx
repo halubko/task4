@@ -12,7 +12,11 @@ export const ProfileCard = () => {
    return (
       <div style={{ padding: "0 8px" }}>
          <ProfileCardWrapper>
-            {data?.image ? <ProfileAvatar src={data.image} /> : <User size={86} />}
+            {data?.image ? (
+               <ProfileAvatar src={data.image} alt="My profile avatar" />
+            ) : (
+               <User size={86} />
+            )}
             {data && <ProfileInfo data={data} />}
          </ProfileCardWrapper>
       </div>

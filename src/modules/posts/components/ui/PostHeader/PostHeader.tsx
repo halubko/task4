@@ -10,7 +10,12 @@ interface PostHeaderProps {
 const PostHeader = ({ userId, src, profileName }: PostHeaderProps) => {
    return (
       <PostHeaderWrapper>
-         <ProfileAvatarLink userId={userId} src={src} profileName={profileName} />
+         <ProfileAvatarLink
+            userId={userId}
+            src={src}
+            profileName={profileName}
+            alt="Profile Avatar"
+         />
       </PostHeaderWrapper>
    );
 };
