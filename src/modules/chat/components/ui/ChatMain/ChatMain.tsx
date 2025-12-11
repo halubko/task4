@@ -25,7 +25,11 @@ const ChatMain = observer(({ profileId }: { profileId: number }) => {
    }, [messagesFromServer, isError]);
 
    if (isLoading) {
-      return <LoadingIndicator />;
+      return (
+         <ChatMainWrapper>
+            <LoadingIndicator />
+         </ChatMainWrapper>
+      );
    }
 
    return (
