@@ -6,6 +6,7 @@ import { routeTree } from "./routeTree.gen.ts";
 import GlobalStyles from "./assets/styles/GlobalStyles.tsx";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./assets/styles/theme.ts";
+import NotFoundPage from "@/pages/NotFoundPage.tsx";
 
 const queryClient = new QueryClient({
    defaultOptions: {
@@ -15,7 +16,11 @@ const queryClient = new QueryClient({
    },
 });
 
-export const router = createRouter({ routeTree, context: { queryClient } });
+export const router = createRouter({
+   routeTree,
+   context: { queryClient },
+   defaultNotFoundComponent: NotFoundPage,
+});
 
 createRoot(document.getElementById("root")!).render(
    <StrictMode>
