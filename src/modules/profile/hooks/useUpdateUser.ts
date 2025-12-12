@@ -9,14 +9,14 @@ import type {
 
 const useUpdateUser = (userId: number) => {
    const navigate = useNavigate();
-   const { invalidateQueries } = useQueryClient();
+   const queryClient = useQueryClient();
 
    return useMutation<ProfileInterfaces, Error, ProfileUpdateInterface>({
       mutationKey: ["update", "user"],
       mutationFn: (formData) => updateUser(userId, formData),
       onSuccess: () => {
          toast.success("Profile updated successfully.");
-         invalidateQueries({ queryKey: ["get", "user", userId] });
+         queryClient.invalidateQueries({ queryKey: ["get", "user", userId] });
          navigate({ to: `/profile/${userId}` });
       },
       onError: (error) => {
