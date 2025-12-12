@@ -44,7 +44,7 @@ export const ProfileEdit = observer(() => {
 
    useEffect(() => {
       if (data) {
-         methods.reset(formatBirthDate(data));
+         methods.reset({ ...data, birthDate: formatBirthDate(data) });
       }
    }, [data]);
 

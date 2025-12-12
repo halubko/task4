@@ -17,7 +17,7 @@ describe("Profile format birthday tests", () => {
 
       const result = formatBirthDate(mockData);
 
-      expect(result?.birthDate).toBe("1990-05-15");
+      expect(result).toBe("1990-05-15");
    });
 
    it("should compare birth date and age to one stroke", () => {

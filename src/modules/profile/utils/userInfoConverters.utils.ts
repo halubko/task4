@@ -19,8 +19,5 @@ export const formatBirthDate = (data: { birthDate: string } | undefined) => {
       return;
    }
 
-   return {
-      ...data,
-      birthDate: new Date(data.birthDate).toLocaleDateString("en-CA"),
-   };
+   return new Date(data.birthDate).toLocaleDateString("en-CA");
 };
